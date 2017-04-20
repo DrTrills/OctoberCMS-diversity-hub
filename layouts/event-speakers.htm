@@ -1,0 +1,95 @@
+description = "Use to list speakers"
+
+[staticPage]
+==
+{% partial 'theme/header' %}
+
+<body>
+{% partial 'theme/navbar' %}
+{variable tab="Speaker Details" type="text" name="speaker_first_name" label="Speaker First Name" placeholder="John"}{/variable}
+{variable tab="Speaker Details" type="text" name="speaker_last_name" label="Speaker Last Name" placeholder="Stossel"}{/variable}
+{variable tab="Speaker Details" type="text" name="speaker_title" label="Speaker Title" placeholder="Software Engineer"}{/variable}
+{variable tab="Speaker Details" type="text" name="speaker_bio_title" label="Speaker Bio Title" placeholder="It all started with a dream"}{/variable}
+{variable tab="Speaker Details" type="text" name="speaker_bio" label="Speaker Bio" placeholder="Paragraph or 2 about the speaker"}{/variable}
+{variable tab="Speaker Details" name="speaker_image" label="Speaker Image" type="mediafinder" mode="image"}{/variable}
+
+<!-- Header -->
+<header class="speakerdetails" id="hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<!-- Heading Title Area -->
+				<div class="header-text white text-center text-uppercase">
+
+					<h1>Diverstiy Hub</h1>
+
+				</div>
+				<!-- /.Heading Title Area -->
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+</header>
+<!-- /.Header -->
+<!-- Section Speaker Details -->
+<section id="speaker-details">
+	<div class="container">
+		<!-- Title & Subtitle -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">
+
+					<h2 class="text-center"><span>Speakers</span></h2>
+
+					<p class="subtitle text-center">Satisne ergo pudori consulat, si quis sine teste libidini pareat</p>
+
+					<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+				</div>
+			</div>
+		</div>
+		<!-- /.Title & Subtitle -->
+	</div>
+</section>
+
+
+<!-- SPEAKER START -->
+
+<!-- Speakers List -->
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <hr class="border-thick" />
+        <!-- Speaker 01 -->
+        <a class="anchor" id="speaker1"></a>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="speaker-item"> <a href="#">
+              <figure class="speaker accent-bg"> <img src="{{ speaker_image|media }}" width="500" height="500" alt="Speaker" class="img-responsive center-block" />
+                <figcaption>
+                  <p class="text-uppercase accent">{{ speaker_first_name }} {{ speaker_last_name }}</p>
+                  <p>{{ speaker_title }}</p>
+                </figcaption>
+              </figure>
+              </a>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <h2 class="accent"><i class="fa fa-star"></i> {{ speaker_first_name }} <strong>{{ speaker_last_name }}</strong></h2>
+            <h3 class="talktitle">{{ speaker_title }}</h3>
+            <hr class="border-light mrgn-30-top"/>
+            <p class="lead accent">{{ speaker_bio_title }} </p>
+            <p> {{ speaker_bio }}</p>
+          </div>
+        </div>
+        <!-- /.Speaker 01 -->
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.Section Speaker Details -->
+</div>
+
+{% page %}
+
+{% partial 'theme/footer' %}
+</body>
+</html>

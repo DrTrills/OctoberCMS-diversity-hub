@@ -1,0 +1,38 @@
+name: main-menu
+items:
+    -
+        title: 'New menu item'
+        type: cms-page
+        code: ''
+        reference: test
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: Events
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: events
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'Event Speakers'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: events-speakers
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

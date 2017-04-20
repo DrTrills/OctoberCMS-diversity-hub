@@ -1,0 +1,13 @@
+name: Speakers
+items:
+    -
+        title: 'New menu item'
+        nesting: '1'
+        type: static-page
+        code: ''
+        reference: events-speakers
+        replace: '1'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
