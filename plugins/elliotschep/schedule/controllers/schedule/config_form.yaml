@@ -1,0 +1,10 @@
+name: Schedule
+form: $/elliotschep/schedule/models/schedule/fields.yaml
+modelClass: ElliotSchep\Schedule\Models\Schedule
+defaultRedirect: elliotschep/schedule/schedule
+create:
+    redirect: 'elliotschep/schedule/schedule/update/:id'
+    redirectClose: elliotschep/schedule/schedule
+update:
+    redirect: elliotschep/schedule/schedule
+    redirectClose: elliotschep/schedule/schedule

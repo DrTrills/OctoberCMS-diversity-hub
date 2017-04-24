@@ -1,0 +1,11 @@
+plugin:
+    name: 'elliotschep.schedule::lang.plugin.name'
+    description: 'elliotschep.schedule::lang.plugin.description'
+    author: elliotSchep
+    icon: oc-icon-sort-amount-asc
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Scheduler
+        url: elliotschep/schedule/schedule
+        icon: icon-sort-amount-asc

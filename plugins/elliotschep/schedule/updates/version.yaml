@@ -1,0 +1,5 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table elliotschep_schedule_'
+    - builder_table_create_elliotschep_schedule_.php
