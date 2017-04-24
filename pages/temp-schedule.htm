@@ -1,0 +1,36 @@
+title = "temp-schedule"
+url = "/temp-schedule"
+is_hidden = 0
+layout = "event"
+
+[builderList]
+modelClass = "ElliotSchep\Schedule\Models\Schedule"
+scope = "-"
+displayColumn = "talk_title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+{% for record in records %}
+	<div class="row">
+		<div class="col-xs-4 col-sm-2 text-center">
+			<p class="text-big text-bold">{{ record.talk_time|raw }}</p>
+			<p><img src="{{ 'assets/event/media/speakers/speaker-02.jpg'|theme }}" alt="Speaker" class="img-responsive center-block img-circle img-speaker" /></p>
+		</div>
+		<div class="col-xs-8 col-sm-10">
+			<p class="text-big text-bold text-uppercase">{{ record.talk_title|raw }}</p>
+			<p>{{ record.talk_summary|raw }}</p>
+			<span class="label label-main">{{ record.talk_location|raw }} - (~{{ record.talk_duration|raw }})</span>
+		</div>
+	</div>
+	<hr class="border-light" />
+{% endfor %}

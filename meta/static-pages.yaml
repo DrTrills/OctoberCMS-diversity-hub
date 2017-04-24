@@ -2,6 +2,6 @@ static-pages:
     events:
         bert-ice: {  }
         events-sponge-bob: {  }
-        events-cj: {  }
+        events-best-event-ever: {  }
     events-speakers:
         events-speakers-bert-swears: {  }
