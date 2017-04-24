@@ -1,7 +1,0 @@
-static-pages:
-    events:
-        bert-ice: {  }
-        events-sponge-bob: {  }
-        events-cj: {  }
-    events-speakers:
-        events-speakers-bert-swears: {  }

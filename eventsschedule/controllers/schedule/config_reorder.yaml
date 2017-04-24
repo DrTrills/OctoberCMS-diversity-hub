@@ -1,4 +1,0 @@
-title: Schedule
-modelClass: PatrickJamal\EventsSchedule\Models\Schedule
-toolbar:
-    buttons: reorder_toolbar
