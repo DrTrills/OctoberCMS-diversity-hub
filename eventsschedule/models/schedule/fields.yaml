@@ -1,0 +1,16 @@
+fields:
+    title:
+        label: 'Schedule Title'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    description:
+        label: 'Schedule Description'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    location_and_time:
+        label: 'Location and Time'
+        oc.commentPosition: ''
+        span: auto
+        type: text
