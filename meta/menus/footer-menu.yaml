@@ -1,0 +1,20 @@
+name: 'footer menu'
+items:
+    -
+        title: Home
+        type: cms-page
+        code: ''
+        reference: default
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Google
+        type: url
+        url: google.com
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

@@ -1,0 +1,177 @@
+description = "Event layout"
+
+[staticPage]
+
+[builderList]
+modelClass = "ElliotSchepPatrickJamel\Events\Models\Schedule"
+scope = "-"
+displayColumn = "talk_title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+pageNumber = "{{ :page }}"
+==
+{% partial 'theme/header' %}
+<body>
+{% partial 'theme/navbar' %}
+<!-- event variables -->
+{variable tab="Event Details" type="text" name="event_subtitle" label="Event Subtitle" placeholder="THE GREATEST CONFERENCE EVER!"}{/variable}
+{variable tab="Event Details" type="text" name="event_date" label="Event Date" placeholder="August 15, KRK, PL"}{/variable}
+<!-- end event variables -->
+
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+<!-- Header -->
+<header id="fullwidth" class="homepage">
+  <div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-12">
+		<!-- Heading Title Area -->
+		<div class="header-text white text-center text-uppercase">
+		  <div class="row">
+			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+			  {% if ('event_title') %}
+			  <h1 class="titlebg pddn-20-top pddn-20-btm">{{ this.page.title }}</h1>
+			  {% endif %}
+			</div>
+		  </div>
+		  <div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+			  <h2 class="white">{{ event_subtitle }}</h2>
+			  <h3 class="mrgn-50-top white sm-title"><span class="date">{{ event_date }}</span></h3>
+			</div>
+		  </div>
+		</div>
+		<!-- /.Heading Title Area -->
+
+		<!-- Animated Arrow -->
+		<div class="arrow text-center"> <i class="fa fa-angle-down fa-4x"></i> </div>
+		<!-- /.Animated Arrow -->
+
+	  </div>
+	</div>
+  </div>
+  <!-- /.container -->
+</header>
+<!-- /.Header -->
+
+<!-- Event Features -->
+<section id="event-features">
+  <div class="container">
+	<div class="row">
+	  {% if placeholder('event_idea') %}
+	  <!-- Feature 01 -->
+	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/ideas.svg'|theme }}" width="49" height="80" class="img-responsive" alt="Ideas" />
+		<h2 class="accent">Ideas</h2>
+		<p> {% placeholder event_idea title="Event Idea" type="text" %} </p>
+	  </div>
+	  <!-- /.Feature 01 -->
+	  {% endif %}
+	  {% if placeholder('event_discussion') %}
+	  <!-- Feature 02 -->
+	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/discussions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Discussions" />
+		<h2 class="accent">Discussions</h2>
+		<p> {% placeholder event_discussion title="Event Discussion" type="text" %} </p>
+	  </div>
+	  <!-- /.Feature 02 -->
+	  {% endif %}
+	  {% if placeholder('event_exhibition') %}
+	  <!-- Feature 03 -->
+	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/exhibitions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Exhibitions" />
+		<h2 class="accent">Exhibitions</h2>
+		<p> {% placeholder event_exhibition title="Event Exhibition" type="text" %} </p>
+	  </div>
+	  <!-- /.Feature 03 -->
+	  {% endif %}
+	  {% if placeholder('event_workshop') %}
+	  <!-- Feature 04 -->
+	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/workshops.svg'|theme }}" width="70" height="70" class="img-responsive" alt="Workshops" />
+		<h2 class="accent">Workshops</h2>
+		<p> {% placeholder event_workshop title="Event Workshop" type="text" %} </p>
+	  </div>
+	  <!-- /.Feature 04 -->
+	  {% endif %}
+	</div>
+  </div>
+  <!-- /.container -->
+</section>
+<!-- /.Event Features -->
+
+<!-- Speakers -->
+<section id="speakers">
+  <div class="container">
+	<!-- Title & Subtitle -->
+	<div class="row">
+	  <div class="col-md-12">
+		<div class="section-title">
+		  <h2 class="text-center"><span>Speakers</span></h2>
+		  <p class="subtitle text-center">Satisne ergo pudori consulat, si quis sine teste libidini pareat</p>
+		  <p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+		</div>
+	  </div>
+	</div>
+	<!-- /.Title & Subtitle -->
+
+<section id="schedule">
+	<div class="container">
+		<!-- Title & Subtitle -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-title">
+					<h2 class="text-center"><span>Schedule</span></h2>
+					<!-- <p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p> -->
+				</div>
+			</div>
+		</div>
+		<!-- /.Title & Subtitle -->
+
+		<!-- Schedule Content -->
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- Days Schedule  -->
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-1">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs nav-justified" role="tablist" id="toolkit">
+							<li class="active"> <a href="#day1" role="tab" data-toggle="tab"><span class="text-bold text-big ">Day 01</span><br/><span class="small">[03 October]</span> </a> </li>
+						</ul>
+						<!-- /.Nav tabs -->
+
+						<!-- Tabs Panes Days -->
+						<div class="tab-content">
+							<div class="tab-pane fade active in" id="day1">
+								{% for record in records %}
+									<div class="row">
+										<div class="col-xs-4 col-sm-2 text-center">
+											<p class="text-big text-bold">{{ record.talk_time|raw }}</p>
+											<p><img src="{{ 'assets/event/media/speakers/speaker-02.jpg'|theme }}" alt="Speaker" class="img-responsive center-block img-circle img-speaker" /></p>
+										</div>
+										<div class="col-xs-8 col-sm-10">
+											<p class="text-big text-bold text-uppercase">{{ record.talk_title|raw }}</p>
+											<p>{{ record.talk_summary|raw }}</p>
+											<span class="label label-main">{{ record.talk_location|raw }} - (~{{ record.talk_duration|raw }})</span>
+										</div>
+									</div>
+									<hr class="border-light" />
+								{% endfor %}
+							</div>
+							<!-- /.Tabs Panes Days -->
+						</div>
+						<!-- /.Days Schedule  -->
+					</div>
+				</div>
+				<!-- /.Schedule Content -->
+			</div>
+			<!-- /.container -->
+		</div>
+	</div>
+</section>
+
+{% partial 'theme/footer' %}
+</body>
+</html>
