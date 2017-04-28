@@ -1,4 +1,0 @@
-title: Schedule
-modelClass: ElliotSchep\Schedule\Models\Schedule
-toolbar:
-    buttons: reorder_toolbar
