@@ -1,6 +1,15 @@
-description = "Select this for the event page"
+
+description = "Event layout"
 
 [staticPage]
+
+[builderList]
+modelClass = "ElliotSchepPatrickJamel\Events\Models\Schedule"
+scope = "-"
+displayColumn = "talk_title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+pageNumber = "{{ :page }}"
 ==
 {% partial 'theme/header' %}
 <body>
@@ -8,16 +17,14 @@ description = "Select this for the event page"
 <!-- event variables -->
 {variable tab="Event Details" type="text" name="event_subtitle" label="Event Subtitle" placeholder="THE GREATEST CONFERENCE EVER!"}{/variable}
 {variable tab="Event Details" type="text" name="event_date" label="Event Date" placeholder="August 15, KRK, PL"}{/variable}
-
-<!-- schedule -->
-{variable tab="Schedule" type="text" name="talk_time" label="Talk Time" placeholder="11.30 AM"}{/variable}
-{variable tab="Schedule" type="text" name="talk_title" label="Talk Title" placeholder="HOW CREATIVE CAN YOU REALLY BE?"}{/variable}
-{variable tab="Schedule" type="text" name="talk_summary" label="Talk Summary" placeholder="Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc."}{/variable}
-{variable tab="Schedule" type="text" name="talk_location" label="Talk Location" placeholder="Tech Hall"}{/variable}
-{variable tab="Schedule" type="text" name="talk_duration" label="Talk Duration" placeholder="45mins"}{/variable}
-<!-- /.schedule -->
-
 <!-- end event variables -->
+
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 
 <!-- Header -->
@@ -58,7 +65,7 @@ description = "Select this for the event page"
 <section id="event-features">
   <div class="container">
 	<div class="row">
-	  {% if placeholder ('event_idea') %}
+	  {% if placeholder('event_idea') %}
 	  <!-- Feature 01 -->
 	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/ideas.svg'|theme }}" width="49" height="80" class="img-responsive" alt="Ideas" />
 		<h2 class="accent">Ideas</h2>
@@ -66,27 +73,27 @@ description = "Select this for the event page"
 	  </div>
 	  <!-- /.Feature 01 -->
 	  {% endif %}
-	  {% if placeholder ('event_discussions') %}
+	  {% if placeholder('event_discussion') %}
 	  <!-- Feature 02 -->
 	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/discussions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Discussions" />
 		<h2 class="accent">Discussions</h2>
-		<p> {% placeholder event_discussions title="Event Discussions" type="text" %} </p>
+		<p> {% placeholder event_discussion title="Event Discussion" type="text" %} </p>
 	  </div>
 	  <!-- /.Feature 02 -->
 	  {% endif %}
-	  {% if placeholder ('event_exhibitions') %}
+	  {% if placeholder('event_exhibition') %}
 	  <!-- Feature 03 -->
 	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/exhibitions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Exhibitions" />
 		<h2 class="accent">Exhibitions</h2>
-		<p> {% placeholder event_exhibitions title="Event Exhibitions" type="text" %} </p>
+		<p> {% placeholder event_exhibition title="Event Exhibition" type="text" %} </p>
 	  </div>
 	  <!-- /.Feature 03 -->
 	  {% endif %}
-	  {% if placeholder ('event_workshops') %}
+	  {% if placeholder('event_workshop') %}
 	  <!-- Feature 04 -->
 	  <div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/workshops.svg'|theme }}" width="70" height="70" class="img-responsive" alt="Workshops" />
 		<h2 class="accent">Workshops</h2>
-		<p> {% placeholder event_workshops title="Event Workshops" type="text" %} </p>
+		<p> {% placeholder event_workshop title="Event Workshop" type="text" %} </p>
 	  </div>
 	  <!-- /.Feature 04 -->
 	  {% endif %}
@@ -139,7 +146,20 @@ description = "Select this for the event page"
 						<!-- Tabs Panes Days -->
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="day1">
-								{% page %}
+								{% for record in records %}
+									<div class="row">
+										<div class="col-xs-4 col-sm-2 text-center">
+											<p class="text-big text-bold">{{ record.talk_time|raw }}</p>
+											<p><img src="{{ 'assets/event/media/speakers/speaker-02.jpg'|theme }}" alt="Speaker" class="img-responsive center-block img-circle img-speaker" /></p>
+										</div>
+										<div class="col-xs-8 col-sm-10">
+											<p class="text-big text-bold text-uppercase">{{ record.talk_title|raw }}</p>
+											<p>{{ record.talk_summary|raw }}</p>
+											<span class="label label-main">{{ record.talk_location|raw }} - (~{{ record.talk_duration|raw }})</span>
+										</div>
+									</div>
+									<hr class="border-light" />
+								{% endfor %}
 							</div>
 							<!-- /.Tabs Panes Days -->
 						</div>
