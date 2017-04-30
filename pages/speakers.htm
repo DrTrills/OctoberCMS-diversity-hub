@@ -41,7 +41,7 @@ pageNumber = "{{ :page }}"
 					<div class="speaker-item"> <a href="#{{ record.id }}">
 						<figure class="speaker accent-bg">
 							<div style="padding-bottom:100%; overflow:hidden; position:relative">
-							<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-49.9%) translateY(-50%);" src={{ '' ~ record.speaker_photo|media }} alt="Speaker" class="img img-responsive full-width">
+							<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-49.9%) translateY(-50%);" src="{{ '' ~ record.speaker_photo|media }}" alt="Speaker" class="img img-responsive full-width">
 							</div>
 							<figcaption>
 								<p class="text-uppercase accent">{{ record.first_name ~ " " ~ record.last_name }}</p>
