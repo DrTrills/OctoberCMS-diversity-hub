@@ -52,7 +52,8 @@ pageNumber = "{{ :page }}"
         {% partial 'event-theme/navbar' %}
 
 <!-- Header -->
-<header id="fullwidth" class="homepage">
+{% set background_image = ('/storage/app/media' ~ record.background_image) %}
+<header id="fullwidth" class="homepage" style='background-image: url("{{ background_image }}"); /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/'>
 	<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
