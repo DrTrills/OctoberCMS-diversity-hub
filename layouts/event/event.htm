@@ -1,5 +1,43 @@
-description = "For the specific events page."
+
+[builderDetails]
+modelClass = "ElliotSchepPatrickJamel\Events\Models\Events"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "event_title"
+notFoundMessage = "Record not found"
+
+[builderList builderList_schedule]
+modelClass = "ElliotSchepPatrickJamel\Events\Models\Schedule"
+scope = "-"
+displayColumn = "talk_title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[builderList builderList_speakers]
+modelClass = "ElliotSchepPatrickJamel\Events\Models\Speaker"
+scope = "-"
+displayColumn = "first_name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[builderList builderList_partners]
+modelClass = "ElliotSchepPatrickJamel\Events\Models\Partners"
+scope = "-"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+{% set record = builderDetails.record %}
+{% set schedules_record = builderList_schedule.records %}
+{% set speakers_record = builderList_speakers.records %}
+{% set partners_record = builderList_partners.records %}
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
