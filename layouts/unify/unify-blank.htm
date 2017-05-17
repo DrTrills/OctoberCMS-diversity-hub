@@ -1,0 +1,22 @@
+description = "blank unify layout"
+
+[staticPage]
+==
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        {% partial 'unify-theme/header' %}
+        {% placeholder head %}
+    </head>
+    <body>
+        {% partial 'unify-theme/navbar' %}        
+		<!--=== Content ===-->
+		<div class="container content height-500">
+        {% page %}
+		</div>
+		<!--=== End Content ===-->
+        {% partial 'unify-theme/footer' %}
+    </body>
+</html>

@@ -1,13 +1,13 @@
-/*********  
+/*********
 NEW YORK WEB BUZZ- MultiPurpose Event Template
 Author: Petia Koleva
 Website: http://designify.me
 *********/
 
 /*********
-Contents  
+Contents
 ==========
-1.Global Styles 
+1.Global Styles
 2.Main Navigation
 3.Video Background Header
 4.Common Styles for Sections
@@ -23,18 +23,18 @@ Contents
 14.Social Icons
 15.Buttons
 16.Labels
-17.Section Full Schedule 
+17.Section Full Schedule
 18.Latest News Home Page
 19.Latest News Page
-20.Latest News Sidebar 
+20.Latest News Sidebar
 21.Pager
-22.Paddings 
-23.Margins 
-24.Animated Arrow For Home Page 
+22.Paddings
+23.Margins
+24.Animated Arrow For Home Page
 *********/
 
-/*********  
-1.Global Styles 
+/*********
+1.Global Styles
 *********/
 html, body {height: 100%;}
 body {color:#141414; background:#fff;font-family: 'Ubuntu Condensed', sans-serif;}
@@ -67,7 +67,7 @@ a:hover, a:focus {color: #6C7A89;text-decoration: none;}
 /* ========== Anchor ========== */
 .anchor{display: block;height: 115px; /*same height as header*/margin-top: -115px; /*same height as header*/visibility: hidden;}
 
-/*********  
+/*********
 2.Main Navigation
 *********/
 /* ========== Light Navigation ========== */
@@ -103,7 +103,7 @@ a:hover, a:focus {color: #6C7A89;text-decoration: none;}
 #darknav .navbar-nav>li>a {padding:20px 10px;font-size:13px}
 }
 
-/*********  
+/*********
 3.Video Background Header
 *********/
 /* Prevent video jerky resize on load, reset defaults */
@@ -116,7 +116,7 @@ video {width: 100%;height: 100%;display: inline-block;vertical-align: baseline;}
 /* ========== Content Overlay Launch Page ========== */
 .content-overlay-counter {position: relative;z-index: 20;padding: 7% 5% 5%;height: 100%;background: rgba(20,20,20,0.5);}
 .content-overlay-counter h1, .content-overlay-counter p {color: #fff;}
-.content-overlay-counter h3 span.date {border: 2px solid #FFF;padding: 10px;letter-spacing: 6px;}	
+.content-overlay-counter h3 span.date {border: 2px solid #FFF;padding: 10px;letter-spacing: 6px;}
 /* ========== Form Adjustments for Launch Page ========== */
 .form-group {margin-bottom: 0px;color: #141414; vertical-align:top !important;font-family: 'Ubuntu Condensed', sans-serif;}
 .form-group input.form-control {height: 42px;background-color: rgba(250, 250, 250, 0.9);color: #141414;}
@@ -138,33 +138,33 @@ video {width: 100%;height: 100%;display: inline-block;vertical-align: baseline;}
 #video-wrap .sm-title {text-transform:uppercase; font-weight:700;font-size:21px}
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
 #video-wrap h1 {text-transform:uppercase;font-weight:400;font-size:21px;background:#6C7A89;color:#FFF;margin-top:40%}
 #video-wrap h2 {text-transform:uppercase; font-weight:400; font-size:28px}
 #video-wrap .sm-title {text-transform:uppercase; font-weight:700;font-size:12px}
 }
 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) { 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
 #video-wrap h1 {text-transform:uppercase;font-weight:400;font-size:28px;background:#6C7A89;color:#FFF}
 #video-wrap h2 {text-transform:uppercase; font-weight:400; font-size:48px}
 #video-wrap .sm-title {text-transform:uppercase; font-weight:700;font-size:21px}
 }
 
-@media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 667px) 
-and (orientation : landscape) { 
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : landscape) {
 #video-wrap h1 {text-transform:uppercase;font-weight:400;font-size:21px;background:#6C7A89;color:#FFF;margin-top:15%}
 #video-wrap h2 {text-transform:uppercase; font-weight:400; font-size:28px}
 #video-wrap .sm-title {text-transform:uppercase; font-weight:700;font-size:18px}
 }
 
-@media only screen 
-and (min-device-width : 414px) 
-and (max-device-width : 736px) 
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px)
 and (orientation : landscape) {
 #video-wrap h1 {text-transform:uppercase;font-weight:400;font-size:21px;background:#6C7A89;color:#FFF;margin-top:10%}
 #video-wrap h2 {text-transform:uppercase; font-weight:400; font-size:28px}
@@ -177,14 +177,14 @@ and (orientation : landscape) {
 #video-wrap .sm-title {text-transform:uppercase; font-weight:700;font-size:12px}
 }
 
-/*********  
-4.Common styles for Sections 
+/*********
+4.Common styles for Sections
 *********/
 section {padding:75px 0}
 section h1 {text-transform:uppercase; font-size:46px;font-weight:400; margin-top:0;}
 section h2 {text-transform:uppercase; font-size:38px;font-weight:400; margin-top:0;}
 section .section-title, section .section-title-color, section .section-title-white {margin-bottom:40px;}
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
 section h2 {text-transform:uppercase; font-size:21px;font-weight:400; margin-top:0;}
 }
 /* ========== Section Title Black ========== */
@@ -204,12 +204,12 @@ section h2 {text-transform:uppercase; font-size:21px;font-weight:400; margin-top
 .section-title-white h2 span::after {left: 100%;margin-left: 20px;}
 section .subtitle {font-size:18px;font-weight:400}
 
-/*********  
+/*********
 5.Section Event Features
 *********/
 section#event-features h2 {font-size:21px; margin:25px 0 10px}
 
-/*********  
+/*********
 6.Section Speakers
 *********/
 section#speakers {background:#EFEFEF}
@@ -217,7 +217,7 @@ section#speakers .speaker-item {margin:15px 0;}
 section#speakers .speaker-item figure {margin:0 0 15px;}
 section#speakers .speaker-item img {-webkit-filter:grayscale(1) opacity(0.95);-moz-filter:grayscale(1) opacity(0.95);-o-filter:grayscale(1) opacity(0.95);-ms-filter:grayscale(1) opacity(0.95);filter:grayscale(1) opacity(0.95)}
 h3.talktitle {font-size:21px;text-transform:uppercase; font-weight:400}
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
 h3.talktitle {font-size: 16px;text-transform: uppercase;font-weight: 400;}
 }
 
@@ -300,14 +300,14 @@ figure.speaker:hover:before,figure.speaker.hover:before,figure.speaker:hover:aft
 /* ========== All Speakers Section ========== */
 .speaker-accent {text-transform:uppercase;color: #6C7A89;}
 .img-speaker {border: 2px solid #ddd; width:60px;height: 60px;}
-	
-/*********  
+
+/*********
 7.Section Highlight
 *********/
 section#highlight {background:url(../media/image-backgrounds/contentbg.jpg) no-repeat;background-position:center center;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover; background-attachment:fixed}
 .dark-box {background:rgba(20,20,20,0.7); color:#FFF;outline: solid #FFF 1px;outline-offset: -20px; margin-bottom:40px}
 
-/*********  
+/*********
 8.Section Timeline
 *********/
 #timeline .timeline-item:after, #timeline .timeline-item:before {content: '';display: block;width: 100%;clear: both;}
@@ -330,7 +330,7 @@ section#highlight {background:url(../media/image-backgrounds/contentbg.jpg) no-r
 #timeline .timeline-item .timeline-icon {left: 0;}
 }
 
-/*********  
+/*********
 9.Section Pricing
 *********/
 section#pricing {background:url(../media/image-backgrounds/pricingbg.jpg) no-repeat;background-position:center center;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover; background-attachment:fixed}
@@ -346,7 +346,7 @@ section#pricing .price {background: rgba(20,20,20, 1);display: block;width: 120p
 .ribbon-light:after{right:0}
 @media (max-width: 640px) {
 .ribbon-wrapper-light{width:90px;height:90px;overflow:hidden;position:absolute;top:-5px;left: 9px;z-index:9}
-} 
+}
 /* Dark Ribbon */
 .ribbon-wrapper-dark{width:90px;height:90px;overflow:hidden;position:absolute;top: 15px;left: 9px;z-index:9}
 .ribbon-dark{color:#333;text-align:center;-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg);position:relative;padding:4px 0;right: 26px;top: 20px;font-size: 13px;width:120px;background-color:#141414;color:#6C7A89;-webkit-box-shadow:0 0 3px rgba(0,0,0,0.3);-moz-box-shadow:0 0 3px rgba(0,0,0,0.3);box-shadow:0 0 3px rgba(0,0,0,0.3);text-transform:uppercase}
@@ -355,14 +355,14 @@ section#pricing .price {background: rgba(20,20,20, 1);display: block;width: 120p
 .ribbon-dark:after{right:0}
 @media (max-width: 640px) {
 .ribbon-wrapper-dark{width:90px;height:90px;overflow:hidden;position:absolute;top:-5px;left: 9px;z-index:9}
-} 
+}
 
-/*********  
+/*********
 10.Section Sponsors
 *********/
 section#sponsors {background:#EFEFEF}
 
-/*********  
+/*********
 11.Section Newsletter
 *********/
 section#newsletter {background:#141414 url(../media/image-backgrounds/newsletterbg.jpg) no-repeat;background-position:top center;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover; background-attachment:fixed}
@@ -377,7 +377,7 @@ section#newsletter::-moz-placeholder {text-transform: uppercase;font-weight: 700
 section#newsletter:-ms-input-placeholder {text-transform: uppercase;font-weight: 700;color: #bbb;}
 section#newsletter .text-danger {color: #6C7A89;}
 
-/*********  
+/*********
 12.Section Location
 *********/
 section#location iframe{ padding:0 !important;}
@@ -387,21 +387,21 @@ section#location .embed-responsive-16by9{padding:10%}
 section#location .embed-responsive-16by9{padding:25%}
 }
 
-/*********  
+/*********
 13.Footer
 *********/
 footer {padding:20px 0 10px;}
 footer p.copyright {font-size:11px;}
 footer ul.list-inline li {text-transform:uppercase;    font-size: 12px;}
 
-/*********  
+/*********
 14.Social Icons
 *********/
 ul.social-buttons {margin-bottom: 40px;}
 ul.social-buttons li a {display: block; text-align:center;	width: 30px;height: 30px;border-radius:0;font-size: 14px;line-height: 30px;outline: 0px none;color: #FFF;	background-color: #141414;	-webkit-transition: all .3s;-moz-transition: all .3s;	transition: all .3s;}
 ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li a:active {background-color: #6C7A89;}
 
-/*********  
+/*********
 15.Buttons
 *********/
 .btn {font-family: 'Ubuntu Condensed', sans-serif;}
@@ -414,14 +414,14 @@ ul.social-buttons li a:hover, ul.social-buttons li a:focus, ul.social-buttons li
 .btn-main-ghost:focus,.btn-main-ghost.focus{color:#fff;background-color:#6C7A89;border-color:#6C7A89}
 .btn-main-ghost:hover{color:#FFF;background-color:#6C7A89;border-color:#6C7A89}
 
-/*********  
+/*********
 16.Labels
 *********/
 #timeline .label-main {background-color: #6C7A89;color:#FFF;font-size:14px;margin-left:-30px;border-radius:0;font-weight:400;}
 #full-schedule .label-main {background-color: #6C7A89;color:#FFF;font-size:14px;margin-left:0px;border-radius:0;font-weight:400;}
 
-/*********  
-16.Headers 
+/*********
+16.Headers
 *********/
 /* ========== Global Header Styles ========== */
 header{background-position:top center;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover; background-attachment:fixed}
@@ -456,42 +456,42 @@ header#fullwidth .sm-title {text-transform:uppercase; font-weight:700;font-size:
 header#fullwidth .header-text {position: relative;z-index: 20;padding: 10% 5% 0;height: 100%;}
 
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
 header#fullwidth h1 {text-transform:uppercase;font-weight:400;font-size:21px;background:#6C7A89;color:#FFF;margin-top:40%}
 header#fullwidth h2 {text-transform:uppercase; font-weight:400; font-size:28px}
 header#fullwidth .sm-title {text-transform:uppercase; font-weight:700;font-size:12px}
 }
 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (orientation : portrait) { 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
 header#fullwidth h1 {text-transform:uppercase;font-weight:400;font-size:28px;background:#6C7A89;color:#FFF}
 header#fullwidth h2 {text-transform:uppercase; font-weight:400; font-size:48px}
 header#fullwidth .sm-title {text-transform:uppercase; font-weight:700;font-size:21px}
 }
 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : landscape)
 and (-webkit-min-device-pixel-ratio: 1)  {
 header#fullwidth h1 {text-transform: uppercase;font-weight: 400;font-size: 28px;background: #6C7A89;color: #FFF;margin-top: 5px;}
 }
 
-@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
 and (orientation : portrait)
 and (-webkit-min-device-pixel-ratio: 1)  {
 header#fullwidth h1 {text-transform: uppercase;font-weight: 400;font-size: 21px;background: #6C7A89;color: #FFF;margin-top: 30%;}
 }
 
-@media only screen 
-and (min-device-width : 414px) 
-and (max-device-width : 736px) 
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px)
 and (orientation : landscape) {
-header#fullwidth h1 {text-transform:uppercase;font-weight:400;font-size:21px;background:#6C7A89;color:#FFF;margin-top:5%} 
+header#fullwidth h1 {text-transform:uppercase;font-weight:400;font-size:21px;background:#6C7A89;color:#FFF;margin-top:5%}
 header#fullwidth h2 {text-transform: uppercase;font-weight: 400;font-size: 21px;}
 }
 
@@ -499,7 +499,7 @@ header#fullwidth h2 {text-transform: uppercase;font-weight: 400;font-size: 21px;
 header#fullwidth h1 {text-transform:uppercase;font-weight:400;font-size:21px;background:#6C7A89;color:#FFF;margin-top:40%}
 header#fullwidth h2 {text-transform:uppercase; font-weight:400; font-size:24px}
 header#fullwidth .header-text {position: relative;z-index: 20;padding: 10% 0% 0;height: 100%;}
-} 
+}
 
 /* Small Hero Header */
 header#hero-sm{background-position:center center;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover}
@@ -518,8 +518,8 @@ header#hero-sm .header-text {padding-top: 150px;padding-bottom: 100px;}
 .getstarted {background-image:url(../media/image-backgrounds/black-and-white/peoplebg.jpg);}
 
 
-/*********  
-17.Section Full Schedule 
+/*********
+17.Section Full Schedule
 *********/
 section#full-schedule .nav-tabs.nav-justified > li > a{text-transform:uppercase;font-size:16px;color:#555;background: #efefef;}
 section#full-schedule .nav > li > a:hover, section#full-schedule .nav > li > a:focus {background: #6C7A89;border:1px solid #6C7A89}
@@ -550,7 +550,7 @@ section#full-schedule .food-break p {text-transform:uppercase; font-size:21px; f
 section#full-schedule .coffee-break {background: url(../media/image-backgrounds/black-and-white/coffee-break.jpg);background-position:center center;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;background-size:cover;-o-background-size:cover}
 section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px; font-weight:500; padding:40px 0 30px; text-align:center}
 
-/*********  
+/*********
 18.Latest News Home Page
 *********/
 .news-item{color:#141414;overflow:hidden;width:100%;background-color:#ebebeb;text-align:left;font-size:16px}
@@ -569,7 +569,7 @@ section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px;
 .news-item footer i{color:#6C7A89;margin-right:5px}
 .news-item :hover img,.news-item .hover img{-webkit-transform:scale(1.1);transform:scale(1.1)}
 
-/*********  
+/*********
 19.Latest News Page
 *********/
 #latest-news .news-item{color:#141414;overflow:hidden;width:100%;background-color:#EFEFEF;text-align:left;font-size:16px;margin:50px 0}
@@ -589,8 +589,8 @@ section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px;
 #latest-news .news-item :hover img,#latest-news .news-item .hover img{-webkit-transform:scale(1.1);transform:scale(1.1)}
 
 
-/*********  
-20.Latest News Sidebar 
+/*********
+20.Latest News Sidebar
 *********/
 #sidebar .share {padding:10px 20px 5px 25px;}
 #sidebar h3 {margin:10px 0}
@@ -599,7 +599,7 @@ section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px;
 #sidebar ul.social-buttons li a {display: block; text-align:center;	width: 50px;height: 50px;border-radius:0;font-size: 24px;line-height: 50px;outline: 0px none;color: #FFF;	background-color: #141414;	-webkit-transition: all .3s;-moz-transition: all .3s;	transition: all .3s;}
 #sidebar ul.social-buttons li a:hover, #sidebar ul.social-buttons li a:focus, #sidebar ul.social-buttons li a:active {background-color: #6C7A89;}
 
-/*********  
+/*********
 21.Pager
 *********/
 .pager{padding-left:0;margin:20px 0;text-align:center;list-style:none}
@@ -611,8 +611,8 @@ section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px;
 .pager .disabled > a,.pager .disabled > a:hover,.pager .disabled > a:focus,.pager .disabled > span{color:#777;cursor:not-allowed;background-color:#fff}
 
 
-/*********  
-22.Paddings 
+/*********
+22.Paddings
 *********/
 .pddn-neg-10-top {padding-top: -10px}
 .pddn-0 {padding: 0px !important}
@@ -644,8 +644,8 @@ section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px;
 .pdd-section-portfolio {padding:50px 0 20px 0}
 .pdd-section-portfolio-top {padding:50px 0 0 0}
 
-/*********  
-23.Margins 
+/*********
+23.Margins
 *********/
 .mrgn-10-top {margin-top: 10px}
 .mrgn-15-top {margin-top: 15px}
@@ -672,8 +672,8 @@ section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px;
 .mrgn-60-top-btm {margin: 60px 0}
 
 
-/*********  
-24.Animated Arrow For Home Page 
+/*********
+24.Animated Arrow For Home Page
 *********/
 @media(min-width:768px) {
 .arrow i {position: relative;margin: 0 auto;display: block;top: 150px;color: #FFF;-webkit-animation: arrow 1s both infinite;animation: arrow 1s both infinite;}
@@ -692,3 +692,15 @@ section#full-schedule .coffee-break p {text-transform:uppercase; font-size:21px;
 50%{transform:translateY(-20px)}
 60%{transform:translateY(-10px)}
 }
+
+/*Heights
+------------------------------------*/
+.height-100 { min-height: 100px;}
+.height-150 { min-height: 150px;}
+.height-200 { min-height: 200px;}
+.height-250 { min-height: 250px;}
+.height-300 { min-height: 300px;}
+.height-350 { min-height: 350px;}
+.height-400 { min-height: 400px;}
+.height-450 { min-height: 450px;}
+.height-500 { min-height: 500px !important;}

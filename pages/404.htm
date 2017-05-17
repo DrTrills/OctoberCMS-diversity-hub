@@ -1,0 +1,38 @@
+title = 404
+url = "/404"
+layout = "unify/unify-blank"
+is_hidden = 0
+
+[viewBag]
+localeUrl[pl] = 404
+==
+<!-- CSS Page Style -->
+	<link rel="stylesheet" href="{{ 'assets/unify/css/pages/page_404_error1.css'|theme }}">
+
+	<!--=== Content Part ===-->
+	<div class="container valign__middle">
+		<!--Error Block-->
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="error-v2">
+					<span class="error-v2-title">404</span>
+					<span>{{ 'Error!'|_ }}</span>
+					<p>{{ 'The requested URL was not found on this server. This is all we know.'|_ }}</p>
+				</div>
+			</div>
+		</div>
+		<!--End Error Block-->
+	</div><!--/container-->
+	<!--=== End Content Part ===-->
+
+
+	
+	<script type="text/javascript">
+		$.backstretch([
+			"{{ 'assets/unify/img/bg/2.jpg'|theme }}",
+			"{{ 'assets/unify/img/bg/8.jpg'|theme }}",
+			], {
+				fade: 1000,
+				duration: 7000
+			});
+	</script>
