@@ -34,8 +34,8 @@ pageNumber = "{{ :page }}"
 	<div class="row">
 		<div class="col-lg-12">
 			{% for record in records %}
-			<hr class="border-thick">
 			<a id="{{ record.id }}"></a>
+			<hr class="border-thick">
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="speaker-item"> <a href="#{{ record.id }}">
@@ -59,7 +59,7 @@ pageNumber = "{{ :page }}"
 					<p>{{ record.speaker_bio }}</p>
 				</div>
 			</div>
-			<hr class="border-thick">
+
 			{% endfor %}
 		</div>
 	</div>
