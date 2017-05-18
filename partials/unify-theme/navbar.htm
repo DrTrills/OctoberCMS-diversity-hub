@@ -1,27 +1,37 @@
 [viewBag]
 
 [staticMenu]
-code = "main-menu"
+code = "footer-menu"
 
 [extendedLocalePicker]
 ==
 <!-- Navbar -->
-    <div class="navbar navbar-default mega-menu" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                Diversity Hub Menu
-            </div>
+<div class="navbar navbar-default mega-menu" role="navigation">
+    <div class="container">
+        <!-- Logo -->
+        <a class="logo" href="index.html">
+            <img src="/assets/unify/img/logo1-default.png" alt="Logo">
+        </a>
+        <!-- End Logo -->
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">Home</a></li>
+            </ul>
+        </nav>
+
+        
+        <!-- navbar-collapse -->
+        <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
             {% component 'staticMenu' %}
             <div class="navbar-form navbar-right">
-{% for code, name in locales %}
-    <a href="{{''|app}}{{ '/' ~ code ~ localeLinks[code] }}">{{ name }}</a>
-{% endfor %}
+                {% for code, name in locales %}
+                <a href="{{''|app}}{{ '/' ~ code ~ localeLinks[code] }}">{{ name }}</a>
+                {% endfor %}
             </div>
-            </div><!-- /navbar-collapse -->
         </div>
+        <!-- End navbar-collapse -->
+
     </div>
-    <!-- End Navbar -->
+</div>
+<!-- End Navbar -->
