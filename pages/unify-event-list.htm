@@ -44,7 +44,7 @@ pageNumber = "{{ :page }}"
                             <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">{{ record.event_title }}</a>
                         </h2>
                         
-                        <p>{{ str_limit(record.event_subtitle, 240) }}</p>
+                        <p>{{ str_limit(record.event_subtitle, 140) }}</p>
                         <a class="btn-u btn-u-sm" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">View Event</a>
                     </div>
                     <div class="timeline-footer">

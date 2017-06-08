@@ -1,5 +1,4 @@
-
-[builderDetails]
+[builderDetails builderDetails_events]
 modelClass = "ElliotSchepPatrickJamel\Events\Models\Events"
 identifierValue = "{{ :slug }}"
 modelKeyColumn = "slug"
@@ -8,6 +7,15 @@ notFoundMessage = "Record not found"
 
 [builderList builderList_schedule]
 modelClass = "ElliotSchepPatrickJamel\Events\Models\Schedule"
+scope = "-"
+displayColumn = "talk_title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[builderList builderList_sitems]
+modelClass = "ElliotSchepPatrickJamel\Events\Models\ScheduleItems"
 scope = "-"
 displayColumn = "talk_title"
 noRecordsMessage = "No records found"
@@ -33,8 +41,9 @@ detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
-{% set record = builderDetails.record %}
+{% set events_record = builderDetails_events.record %}
 {% set schedule_records = builderList_schedule.records %}
+{% set record_sitems = builderList_sitems.records %}
 {% set speaker_records = builderList_speakers.records %}
 {% set partner_records = builderList_partners.records %}
 
@@ -52,7 +61,7 @@ pageNumber = "{{ :page }}"
 		{% partial 'event-theme/navbar' %}
 
 <!-- Header -->
-{% set background_image = ('/storage/app/media' ~ record.background_image) %}
+{% set background_image = ('/storage/app/media' ~ events_record.background_image) %}
 <header id="fullwidth" class="homepage" style='background-image: url("{{ background_image }}"); /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/'>
 	<div class="container-fluid">
 	<div class="row">
@@ -61,13 +70,13 @@ pageNumber = "{{ :page }}"
 		<div class="header-text white text-center text-uppercase">
 			<div class="row">
 			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-				<h1 class="titlebg pddn-20-top pddn-20-btm">{{ record.event_title }}</h1>
+				<h1 class="titlebg pddn-20-top pddn-20-btm">{{ events_record.event_title }}</h1>
 			</div>
 			</div>
 			<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h2 class="white">{{ record.event_subtitle }}</h2>
-				<h3 class="mrgn-50-top white sm-title"><span class="date">{{ record.event_date }}</span></h3>
+				<h2 class="white">{{ events_record.event_subtitle }}</h2>
+				<h3 class="mrgn-50-top white sm-title"><span class="date">{{ events_record.event_date }}</span></h3>
 			</div>
 			</div>
 		</div>
@@ -89,28 +98,28 @@ pageNumber = "{{ :page }}"
 <!-- <section id="event-features">
 	<div class="container">
 		<div class="row">
-			{% if record.event_idea %}
+			{% if events_record.event_idea %}
 			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/ideas.svg'|theme }}" width="49" height="80" class="img-responsive" alt="Ideas" />
 				<h2 class="accent">Ideas</h2>
-				<p> {{ record.event_idea }} </p>
+				<p> {{ events_record.event_idea }} </p>
 			</div>
 			{% endif %}
-			{% if record.event_discussion %}
+			{% if events_record.event_discussion %}
 			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/discussions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Discussions" />
 				<h2 class="accent">Discussions</h2>
-				<p> {{ record.event_discussion }} </p>
+				<p> {{ events_record.event_discussion }} </p>
 			</div>
 			{% endif %}
-			{% if record.event_exhibition %}
+			{% if events_record.event_exhibition %}
 			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/exhibitions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Exhibitions" />
 				<h2 class="accent">Exhibitions</h2>
-				<p> {{ record.event_exhibition }} </p>
+				<p> {{ events_record.event_exhibition }} </p>
 			</div>
 			{% endif %}
-			{% if record.event_workshop %}
+			{% if events_record.event_workshop %}
 			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/workshops.svg'|theme }}" width="70" height="70" class="img-responsive" alt="Workshops" />
 				<h2 class="accent">Workshops</h2>
-				<p> {{ record.event_workshop }} </p>
+				<p> {{ events_record.event_workshop }} </p>
 			</div>
 			{% endif %}
 		</div>
@@ -120,13 +129,13 @@ pageNumber = "{{ :page }}"
 
 
 <!-- Event description -->
-{% if record.description %}
+{% if events_record.description %}
 <section id="description" >
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2 class="text-center"><span>{{ record.event_title }}</span></h2>
+					<h2 class="text-center"><span>{{ events_record.event_title }}</span></h2>
 					<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
 				</div>
 			</div>
@@ -134,15 +143,15 @@ pageNumber = "{{ :page }}"
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-sm-10 col-sm-offset-1" style="font-size: 17px;">
-					{{ record.description|raw }}
+					{{ events_record.description|raw }}
 				</div>
 
 
 				<!-- <div class="post-text" itemprop="text" style="margin: auto; top: 0; left: 0; bottom: 0; right: 0; width:800px; word-wrap: break-word; font-size: 15px; line-height: 1.3;">
-					{{ record.description|raw }}
+					{{ events_record.description|raw }}
 				</div>
 				<div class="text-center" style="font-size: 15px;">
-					{{ record.description|raw }}
+					{{ events_record.description|raw }}
 				</div> -->
 			</div>
 		</div>
@@ -168,35 +177,49 @@ pageNumber = "{{ :page }}"
 
 		<!-- Speakers List -->
 		<div class="row">
-			{% set array = [] %}
-			{% for speaker_record in speaker_records %}
-				{% for record_schedule in schedule_records %}
-					{% for elm in record_schedule.select_speaker %}
-						{% if elm not in array %}
-							{% if elm == speaker_record.id %}
+{% set array = [] %}
+{% for speaker_record in speaker_records %}
+
+{% for record_select_schedule_events in events_record.select_schedule_events %}
+{% for record_schedule in schedule_records %}
+{% if record_schedule.id == record_select_schedule_events %}
+{% for sitem_id in record_schedule.sitems_id|split(", ") %}
+{% for sitem in record_sitems %}
+{% if sitem_id == sitem.id %}
+
+{% for elm in sitem.select_speaker %}
+{% if elm not in array %}
+{% if elm == speaker_record.id %}
 			<div class="col-md-3 col-sm-6 text-center">
 				<div class="speaker-item"> <a href="/events/speakers#{{ speaker_record.id }}">
 					<figure class="speaker accent-bg">
 						<div style="padding-bottom:100%; overflow:hidden; position:relative">
-						<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" src={{ '/storage/app/media' ~ speaker_record.speaker_photo }} alt="Speaker" class="img img-responsive full-width">
+							<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" src={{ '/storage/app/media' ~ speaker_record.speaker_photo }} alt="Speaker" class="img img-responsive full-width">
 						</div>
 						<figcaption>
-							<p class="text-uppercase accent">{{ speaker_record.speaker_bio_title }}</p>
-							<p>{{ str_limit(speaker_record.speaker_bio, 30) }}</p>
+							<p class="text-uppercase accent">{{ speaker_record.first_name }} {{ speaker_record.last_name }}</p>
+							<p>{{ speaker_record.speaker_motto }}</p>
 						</figcaption>
 					</figure>
 					</a>
-					<p><span class="speaker-accent">{{ speaker_record.first_name }} {{ speaker_record.last_name }}</span><br>
-					{{ speaker_record.speaker_motto }}</p>
+					<p><span class="speaker-accent">{{ str_limit(speaker_record.speaker_bio_title, 40) }}</span><br>
+					{{ str_limit(speaker_record.speaker_bio, 40) }}</p>
 				</div>
 			</div>
-								{% set array = array|merge([elm]) %}
-							{% endif %}
-						{% endif %}
-					{% endfor %}
-				{% endfor %}
-			{% endfor %}
-		</div>
+{% set array = array|merge([elm]) %}
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+{% endfor %}
+</div>
 		<!-- /.Speakers List -->
 </section>
 
@@ -235,9 +258,9 @@ pageNumber = "{{ :page }}"
 		</div> -->
 
 		<div class="text-center">
-		{% for record_select_sponsors in record.select_sponsors %}
-		{% for record_partner in partner_records %}
-		{% if record_partner.id == record_select_sponsors %}
+{% for record_select_sponsors in record.select_sponsors %}
+{% for record_partner in partner_records %}
+{% if record_partner.id == record_select_sponsors %}
 			<div class="col-sm-3" style="width: 20%; display: inline-block; position: relative;">
 				<a href="{{ record_partner.web_address }}" target="_blank">
 					<div class="logo-block text-center" style="width: 205px; width: 204px; border: 1px solid #b7c0c8; padding: 12px 24px; min-height: 110px; margin-bottom: 20px;">	
@@ -250,9 +273,9 @@ pageNumber = "{{ :page }}"
 					</div>
 				</a>
 			</div>
-		{% endif %}
-		{% endfor %}
-		{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
 		</div>
 		<!-- /.Sponsors List -->
 	</div>
@@ -296,31 +319,38 @@ pageNumber = "{{ :page }}"
 			  <div class="tab-pane fade active in" id="day1" style="background-color: #fff">
 				<!-- Talk 01 -->
 
-				{% for record_select_schedule_events in record.select_schedule_events %}
-					{% for record_schedule in schedule_records %}
-						{% if record_schedule.id == record_select_schedule_events %}
-							{% for record_schedule_speaker in record_schedule.select_speaker %}
-								{% for speaker_record in speaker_records %}
-									{% if record_schedule_speaker == speaker_record.id %}
+{% for record_select_schedule_events in events_record.select_schedule_events %}
+{% for record_schedule in schedule_records %}
+{% if record_schedule.id == record_select_schedule_events %}
+{% for sitem_id in record_schedule.sitems_id|split(", ") %}
+{% for sitem in record_sitems %}
+{% if sitem_id == sitem.id %}
+{% for record_schedule_speaker in sitem.select_speaker %}
+{% for speaker_record in speaker_records %}
+{% if record_schedule_speaker == speaker_record.id %}
 
 				<div class="row">
-				  <div class="col-xs-4 col-sm-2 text-center">
-					<p class="text-big text-bold">{{ record_schedule.talk_time }}</p>
-					<p><img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle img-speaker" /></p>
-				  </div>
-				  <div class="col-xs-8 col-sm-10">
-					<p class="text-big text-bold text-uppercase">{{ record_schedule.talk_title }}</p>
-					<p>{{ record_schedule.talk_summary }}</p>
-					<span class="label label-main">{{ record_schedule.talk_location|raw }} - (~{{ record_schedule.talk_duration|raw }})</span></div>
+					<div class="col-xs-4 col-sm-2 text-center">
+						<p class="text-big text-bold">{{ sitem.talk_time }}</p>
+						<p><img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle img-speaker" /></p>
+					</div>
+					<div class="col-xs-8 col-sm-10">
+						<p class="text-big text-bold text-uppercase">{{ sitem.talk_title }}</p>
+						<p>{{ sitem.talk_summary }}</p>
+						<span class="label label-main">{{ sitem.talk_location|raw }} - (~{{ sitem.talk_duration|raw }})</span>
+					</div>
 				</div>
 
-									{% endif %}
-								{% endfor %}
-							{% endfor %}
-						{% endif %}
-					{% endfor %}
-					{% if loop.last == false %}<hr class="border-light"/>{% endif %}
-				{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% if loop.last == false %}<hr class="border-light"/>{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endfor %}
 
 				<!-- /.Talk 01 -->
 
