@@ -162,7 +162,7 @@ pageNumber = "{{ :page }}"
 
 
 <a id="speakers-section"></a>
-<section id="speakers">
+<section id="speakers" style="background: white">
 	<div class="container">
 		<!-- Title & Subtitle -->
 		<div class="row">
@@ -191,11 +191,13 @@ pageNumber = "{{ :page }}"
 {% if elm not in array %}
 {% if elm == speaker_record.id %}
 			<div class="col-md-3 col-sm-6 text-center">
-				<div class="speaker-item"> <a href="/events/speakers#{{ speaker_record.id }}">
+				<div class=""> <a href="/events/speakers#{{ speaker_record.id }}">
 					<figure class="speaker accent-bg">
-						<div style="padding-bottom:100%; overflow:hidden; position:relative">
+						<!-- <div style="padding-bottom:100%; overflow:hidden; position:relative">
 							<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" src={{ '/storage/app/media' ~ speaker_record.speaker_photo }} alt="Speaker" class="img img-responsive full-width">
-						</div>
+						</div> -->
+						<img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img img-responsive full-width">
+
 						<figcaption>
 							<p class="text-uppercase accent">{{ speaker_record.first_name }} {{ speaker_record.last_name }}</p>
 							<p>{{ speaker_record.speaker_motto }}</p>
@@ -286,7 +288,7 @@ pageNumber = "{{ :page }}"
 
 
 <!-- Full Schedule -->
-<section id="full-schedule" style="background-color: #EFEFEF">
+<section id="full-schedule">
   <div class="container">
 	<!-- Title & Subtitle -->
 	<div class="row">
@@ -316,7 +318,7 @@ pageNumber = "{{ :page }}"
 			<div class="tab-content">
 
 			  <!-- Tab - Day 01 -->
-			  <div class="tab-pane fade active in" id="day1" style="background-color: #fff">
+			  <div class="tab-pane fade active in" id="day1">
 				<!-- Talk 01 -->
 
 {% for record_select_schedule_events in events_record.select_schedule_events %}
@@ -332,7 +334,7 @@ pageNumber = "{{ :page }}"
 				<div class="row">
 					<div class="col-xs-4 col-sm-2 text-center">
 						<p class="text-big text-bold">{{ sitem.talk_time }}</p>
-						<p><img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle img-speaker" /></p>
+						<p><img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle" /></p>
 					</div>
 					<div class="col-xs-8 col-sm-10">
 						<p class="text-big text-bold text-uppercase">{{ sitem.talk_title }}</p>
