@@ -5,15 +5,6 @@ modelKeyColumn = "slug"
 displayColumn = "event_title"
 notFoundMessage = "Record not found"
 
-[builderList builderList_schedule]
-modelClass = "ElliotSchepPatrickJamel\Events\Models\Schedule"
-scope = "-"
-displayColumn = "talk_title"
-noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
-pageNumber = "{{ :page }}"
-
 [builderList builderList_sitems]
 modelClass = "ElliotSchepPatrickJamel\Events\Models\ScheduleItems"
 scope = "-"
@@ -42,337 +33,319 @@ detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
 {% set events_record = builderDetails_events.record %}
-{% set schedule_records = builderList_schedule.records %}
 {% set record_sitems = builderList_sitems.records %}
 {% set speaker_records = builderList_speakers.records %}
 {% set partner_records = builderList_partners.records %}
 
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<html>
 	<head>
 		{% partial 'event-theme/header' %}
 		{% placeholder head %}
 	</head>
 	<body>
-
 		{% partial 'event-theme/navbar' %}
 
-<!-- Header -->
-{% set background_image = ('/storage/app/media' ~ events_record.background_image) %}
-<header id="fullwidth" class="homepage" style='background-image: url("{{ background_image }}"); /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/'>
-	<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-		<!-- Heading Title Area -->
-		<div class="header-text white text-center text-uppercase">
+		<!-- Header -->
+		{% set background_image = ('/storage/app/media' ~ events_record.background_image) %}
+		<header id="fullwidth" class="homepage" style='background-image: url("{{ background_image }}"); /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/'>
+			<div class="container-fluid">
 			<div class="row">
-			<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-				<h1 class="titlebg pddn-20-top pddn-20-btm">{{ events_record.event_title }}</h1>
-			</div>
-			</div>
-			<div class="row">
-			<div class="col-sm-10 col-sm-offset-1">
-				<h2 class="white">{{ events_record.event_subtitle }}</h2>
-				<h3 class="mrgn-50-top white sm-title"><span class="date">{{ events_record.event_date }}</span></h3>
-			</div>
-			</div>
-		</div>
-		<!-- /.Heading Title Area -->
+				<div class="col-md-12">
+				<!-- Heading Title Area -->
+				<div class="header-text white text-center text-uppercase">
+					<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+						<h1 class="titlebg pddn-20-top pddn-20-btm">{{ events_record.event_title }}</h1>
+					</div>
+					</div>
+					<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<h2 class="white">{{ events_record.event_subtitle }}</h2>
+						<h3 class="mrgn-50-top white sm-title"><span class="date">{{ events_record.event_date }}</span></h3>
+					</div>
+					</div>
+				</div>
+				<!-- /.Heading Title Area -->
 
-		<!-- Animated Arrow -->
-		<div class="arrow text-center"> <i class="fa fa-angle-down fa-4x"></i> </div>
-		<!-- /.Animated Arrow -->
+				<!-- Animated Arrow -->
+				<div class="arrow text-center"> <i class="fa fa-angle-down fa-4x"></i> </div>
+				<!-- /.Animated Arrow -->
 
-		</div>
-	</div>
-	</div>
-	<!-- /.container -->
-</header>
-<!-- /.Header -->
-
-
-<!-- Event Features -->
-<!-- <section id="event-features">
-	<div class="container">
-		<div class="row">
-			{% if events_record.event_idea %}
-			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/ideas.svg'|theme }}" width="49" height="80" class="img-responsive" alt="Ideas" />
-				<h2 class="accent">Ideas</h2>
-				<p> {{ events_record.event_idea }} </p>
-			</div>
-			{% endif %}
-			{% if events_record.event_discussion %}
-			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/discussions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Discussions" />
-				<h2 class="accent">Discussions</h2>
-				<p> {{ events_record.event_discussion }} </p>
-			</div>
-			{% endif %}
-			{% if events_record.event_exhibition %}
-			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/exhibitions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Exhibitions" />
-				<h2 class="accent">Exhibitions</h2>
-				<p> {{ events_record.event_exhibition }} </p>
-			</div>
-			{% endif %}
-			{% if events_record.event_workshop %}
-			<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/workshops.svg'|theme }}" width="70" height="70" class="img-responsive" alt="Workshops" />
-				<h2 class="accent">Workshops</h2>
-				<p> {{ events_record.event_workshop }} </p>
-			</div>
-			{% endif %}
-		</div>
-	</div>
-</section> -->
-<!-- /.Event Features -->
-
-
-<!-- Event description -->
-{% if events_record.description %}
-<section id="description" >
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">
-					<h2 class="text-center"><span>{{ events_record.event_title }}</span></h2>
-					<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="col-sm-10 col-sm-offset-1" style="font-size: 17px;">
-					{{ events_record.description|raw }}
-				</div>
-
-
-				<!-- <div class="post-text" itemprop="text" style="margin: auto; top: 0; left: 0; bottom: 0; right: 0; width:800px; word-wrap: break-word; font-size: 15px; line-height: 1.3;">
-					{{ events_record.description|raw }}
-				</div>
-				<div class="text-center" style="font-size: 15px;">
-					{{ events_record.description|raw }}
-				</div> -->
 			</div>
-		</div>
-	</div>
-</section>
-{% endif %}
-<!-- /.Event description -->
+			<!-- /.container -->
+		</header>
+		<!-- /.Header -->
 
 
-<a id="speakers-section"></a>
-<section id="speakers" style="background: white">
-	<div class="container">
-		<!-- Title & Subtitle -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">
-					<h2 class="text-center"><span>Speakers</span></h2>
-					<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+		<!-- Event Features -->
+		<!-- <section id="event-features">
+			<div class="container">
+				<div class="row">
+					{% if events_record.event_idea %}
+					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/ideas.svg'|theme }}" width="49" height="80" class="img-responsive" alt="Ideas" />
+						<h2 class="accent">Ideas</h2>
+						<p> {{ events_record.event_idea }} </p>
+					</div>
+					{% endif %}
+					{% if events_record.event_discussion %}
+					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/discussions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Discussions" />
+						<h2 class="accent">Discussions</h2>
+						<p> {{ events_record.event_discussion }} </p>
+					</div>
+					{% endif %}
+					{% if events_record.event_exhibition %}
+					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/exhibitions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Exhibitions" />
+						<h2 class="accent">Exhibitions</h2>
+						<p> {{ events_record.event_exhibition }} </p>
+					</div>
+					{% endif %}
+					{% if events_record.event_workshop %}
+					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/workshops.svg'|theme }}" width="70" height="70" class="img-responsive" alt="Workshops" />
+						<h2 class="accent">Workshops</h2>
+						<p> {{ events_record.event_workshop }} </p>
+					</div>
+					{% endif %}
 				</div>
 			</div>
-		</div>
-		<!-- /.Title & Subtitle -->
+		</section> -->
+		<!-- /.Event Features -->
 
-		<!-- Speakers List -->
-		<div class="row">
-{% set array = [] %}
-{% for speaker_record in speaker_records %}
 
-{% for record_select_schedule_events in events_record.select_schedule_events %}
-{% for record_schedule in schedule_records %}
-{% if record_schedule.id == record_select_schedule_events %}
-{% for sitem_id in record_schedule.sitems_id|split(", ") %}
-{% for sitem in record_sitems %}
-{% if sitem_id == sitem.id %}
+		<!-- Event description -->
+		{% if events_record.description %}
+		<section id="description" >
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2 class="text-center"><span>{{ events_record.event_title }}</span></h2>
+							<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-sm-10 col-sm-offset-1" style="font-size: 17px;">
+							{{ events_record.description|raw }}
+						</div>
 
-{% for elm in sitem.select_speaker %}
-{% if elm not in array %}
-{% if elm == speaker_record.id %}
-			<div class="col-md-3 col-sm-6 text-center">
-				<div class=""> <a href="/events/speakers#{{ speaker_record.id }}">
-					<figure class="speaker accent-bg">
-						<!-- <div style="padding-bottom:100%; overflow:hidden; position:relative">
-							<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" src={{ '/storage/app/media' ~ speaker_record.speaker_photo }} alt="Speaker" class="img img-responsive full-width">
+
+						<!-- <div class="post-text" itemprop="text" style="margin: auto; top: 0; left: 0; bottom: 0; right: 0; width:800px; word-wrap: break-word; font-size: 15px; line-height: 1.3;">
+							{{ events_record.description|raw }}
+						</div>
+						<div class="text-center" style="font-size: 15px;">
+							{{ events_record.description|raw }}
 						</div> -->
-						<img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img img-responsive full-width">
-
-						<figcaption>
-							<p class="text-uppercase accent">{{ speaker_record.first_name }} {{ speaker_record.last_name }}</p>
-							<p>{{ speaker_record.speaker_motto }}</p>
-						</figcaption>
-					</figure>
-					</a>
-					<p><span class="speaker-accent">{{ str_limit(speaker_record.speaker_bio_title, 40) }}</span><br>
-					{{ str_limit(speaker_record.speaker_bio, 40) }}</p>
+					</div>
 				</div>
 			</div>
-{% set array = array|merge([elm]) %}
-{% endif %}
-{% endif %}
-{% endfor %}
-
-{% endif %}
-{% endfor %}
-{% endfor %}
-{% endif %}
-{% endfor %}
-{% endfor %}
-
-{% endfor %}
-</div>
-		<!-- /.Speakers List -->
-</section>
+		</section>
+		{% endif %}
+		<!-- /.Event description -->
 
 
-
-<section id="sponsors" style="background: white">
-	<div class="container">
-		<!-- Title & Subtitle -->
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">
-					<h2 class="text-center"><span>Sponsors</span></h2>
-					<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+		<a id="speakers-section"></a>
+		<section id="speakers" style="background: white">
+			<div class="container">
+				<!-- Title & Subtitle -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2 class="text-center"><span>Speakers</span></h2>
+							<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+						</div>
+					</div>
 				</div>
-			</div>
+				<!-- /.Title & Subtitle -->
+
+				<!-- Speakers List -->
+				<div class="row">
+		{% set array = [] %}
+		{% for speaker_record in speaker_records %}
+
+			{% for schedule_item_ID in events_record.schedule|split(", ") %}
+				{% for schedule_item in record_sitems %}
+					{% if schedule_item_ID == schedule_item.id %}
+
+						{% for elm in schedule_item.select_speaker %}
+							{% if elm not in array %}
+								{% if elm == speaker_record.id %}
+					<div class="col-md-3 col-sm-6 text-center">
+						<div class=""> <a href="/events/speakers#{{ speaker_record.id }}">
+							<figure class="speaker accent-bg">
+								<!-- <div style="padding-bottom:100%; overflow:hidden; position:relative">
+									<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);" src={{ '/storage/app/media' ~ speaker_record.speaker_photo }} alt="Speaker" class="img img-responsive full-width">
+								</div> -->
+								<img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img img-responsive full-width">
+
+								<figcaption>
+									<p class="text-uppercase accent">{{ speaker_record.first_name }} {{ speaker_record.last_name }}</p>
+									<p>{{ speaker_record.speaker_motto }}</p>
+								</figcaption>
+							</figure>
+							</a>
+							<p><span class="speaker-accent">{{ str_limit(speaker_record.speaker_bio_title, 40) }}</span><br>
+							{{ str_limit(speaker_record.speaker_bio, 40) }}</p>
+						</div>
+					</div>
+									{% set array = array|merge([elm]) %}
+								{% endif %}
+							{% endif %}
+						{% endfor %}
+
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+
+		{% endfor %}
 		</div>
-		<!-- /.Title & Subtitle -->
+				<!-- /.Speakers List -->
+		</section>
 
-		<!-- Sponsors List -->
-		<!-- <div class="row">
+
+
+		<section id="sponsors" style="background: white">
+			<div class="container">
+				<!-- Title & Subtitle -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2 class="text-center"><span>Sponsors</span></h2>
+							<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+						</div>
+					</div>
+				</div>
+				<!-- /.Title & Subtitle -->
+
+				<!-- Sponsors List -->
+				<!-- <div class="row">
+				{% for record_select_sponsors in record.select_sponsors %}
+				{% for record_partner in partner_records %}
+				{% if record_partner.id == record_select_sponsors %}
+					<div class="col-md-2 col-sm-4 col-xs-6 mrgn-20-top-btm">
+						<div style="text-align:center; padding-bottom:100%; overflow:hidden; position:relative">
+							<a href="{{ record_partner.web_address }}">
+								<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);"  class="img img-responsive full-width" src="{{ '/storage/app/media' ~ record_partner.logo }}" width="230" height="150" alt="">
+							</a>
+							{% if record_partner.media_partner_switch == "1" %}<div style="opacity: 0.7;">Media partner</div>{% endif %}
+							{% if record_partner.media_partner_switch == "0" %}<div style="opacity: 0.7;">Sponsor</div>{% endif %}
+						</div>
+					</div>
+				{% endif %}
+				{% endfor %}
+				{% endfor %}
+				</div> -->
+
+				<div class="text-center">
 		{% for record_select_sponsors in record.select_sponsors %}
 		{% for record_partner in partner_records %}
 		{% if record_partner.id == record_select_sponsors %}
-			<div class="col-md-2 col-sm-4 col-xs-6 mrgn-20-top-btm">
-				<div style="text-align:center; padding-bottom:100%; overflow:hidden; position:relative">
-					<a href="{{ record_partner.web_address }}">
-						<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);"  class="img img-responsive full-width" src="{{ '/storage/app/media' ~ record_partner.logo }}" width="230" height="150" alt="">
-					</a>
-					{% if record_partner.media_partner_switch == "1" %}<div style="opacity: 0.7;">Media partner</div>{% endif %}
-					{% if record_partner.media_partner_switch == "0" %}<div style="opacity: 0.7;">Sponsor</div>{% endif %}
-				</div>
-			</div>
+					<div class="col-sm-3" style="width: 20%; display: inline-block; position: relative;">
+						<a href="{{ record_partner.web_address }}" target="_blank">
+							<div class="logo-block text-center" style="width: 205px; width: 204px; border: 1px solid #b7c0c8; padding: 12px 24px; min-height: 110px; margin-bottom: 20px;">
+								{% if record_partner.media_partner_switch == "1" %}<p class="text-uppercase">media partner</p>{% endif %}
+								{% if record_partner.media_partner_switch == "0" %}<p class="text-uppercase">sponsor</p>{% endif %}
+								<div class="logo-block-image-container" style="height: 150px; line-height: 150px;">
+									<!-- <img class="img img-responsive full-width" src="{{ '/storage/app/media' ~ record_partner.logo }}" width="230" height="150"> -->
+									<img style="max-width: 100%; max-height: 100%; vertical-align: middle; border: 0; box-sizing: border-box; " src="{{ '/storage/app/media' ~ record_partner.logo }}">
+								</div>
+							</div>
+						</a>
+					</div>
 		{% endif %}
 		{% endfor %}
 		{% endfor %}
-		</div> -->
-
-		<div class="text-center">
-{% for record_select_sponsors in record.select_sponsors %}
-{% for record_partner in partner_records %}
-{% if record_partner.id == record_select_sponsors %}
-			<div class="col-sm-3" style="width: 20%; display: inline-block; position: relative;">
-				<a href="{{ record_partner.web_address }}" target="_blank">
-					<div class="logo-block text-center" style="width: 205px; width: 204px; border: 1px solid #b7c0c8; padding: 12px 24px; min-height: 110px; margin-bottom: 20px;">	
-						{% if record_partner.media_partner_switch == "1" %}<p class="text-uppercase">media partner</p>{% endif %}
-						{% if record_partner.media_partner_switch == "0" %}<p class="text-uppercase">sponsor</p>{% endif %}
-						<div class="logo-block-image-container" style="height: 150px; line-height: 150px;">
-							<!-- <img class="img img-responsive full-width" src="{{ '/storage/app/media' ~ record_partner.logo }}" width="230" height="150"> -->
-							<img style="max-width: 100%; max-height: 100%; vertical-align: middle; border: 0; box-sizing: border-box; " src="{{ '/storage/app/media' ~ record_partner.logo }}">
-						</div>
-					</div>
-				</a>
-			</div>
-{% endif %}
-{% endfor %}
-{% endfor %}
-		</div>
-		<!-- /.Sponsors List -->
-	</div>
-	<!-- /.container -->
-</section>
-
-
-
-
-<!-- Full Schedule -->
-<section id="full-schedule">
-  <div class="container">
-	<!-- Title & Subtitle -->
-	<div class="row">
-	  <div class="col-lg-12">
-		<div class="section-title">
-		  <h2 class="text-center"><span>Full Schedule</span></h2>
-		  <p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
-		</div>
-	  </div>
-	</div>
-	<!-- /.Title & Subtitle -->
-
-	<!-- Schedule Content -->
-	<div class="row">
-	  <div class="col-lg-12">
-
-		<!-- Days Schedule  -->
-		<div class="row">
-		  <div class="col-lg-10 col-lg-offset-1">
-			<!-- Nav tabs -->
-			<ul class="nav nav-tabs nav-justified" role="tablist" id="toolkit">
-			  <li class="active"> <a href="#day1" role="tab" data-toggle="tab"><span class="text-bold text-big ">Day 01</span></a></li>
-			</ul>
-			<!-- /.Nav tabs -->
-
-			<!-- Tabs Panes Days -->
-			<div class="tab-content">
-
-			  <!-- Tab - Day 01 -->
-			  <div class="tab-pane fade active in" id="day1">
-				<!-- Talk 01 -->
-
-{% for record_select_schedule_events in events_record.select_schedule_events %}
-{% for record_schedule in schedule_records %}
-{% if record_schedule.id == record_select_schedule_events %}
-{% for sitem_id in record_schedule.sitems_id|split(", ") %}
-{% for sitem in record_sitems %}
-{% if sitem_id == sitem.id %}
-{% for record_schedule_speaker in sitem.select_speaker %}
-{% for speaker_record in speaker_records %}
-{% if record_schedule_speaker == speaker_record.id %}
-
-				<div class="row">
-					<div class="col-xs-4 col-sm-2 text-center">
-						<p class="text-big text-bold">{{ sitem.talk_time }}</p>
-						<p><img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle" /></p>
-					</div>
-					<div class="col-xs-8 col-sm-10">
-						<p class="text-big text-bold text-uppercase">{{ sitem.talk_title }}</p>
-						<p>{{ sitem.talk_summary }}</p>
-						<span class="label label-main">{{ sitem.talk_location|raw }} - (~{{ sitem.talk_duration|raw }})</span>
-					</div>
 				</div>
-
-{% endif %}
-{% endfor %}
-{% endfor %}
-{% endif %}
-{% endfor %}
-{% if loop.last == false %}<hr class="border-light"/>{% endif %}
-{% endfor %}
-{% endif %}
-{% endfor %}
-{% endfor %}
-
-				<!-- /.Talk 01 -->
-
-			  </div>
-			  <!-- /.Tab - Day 01 -->
-
+				<!-- /.Sponsors List -->
 			</div>
-			<!-- /.Tabs Panes Days -->
+			<!-- /.container -->
+		</section>
+
+
+
+
+		<!-- Full Schedule -->
+		<section id="full-schedule">
+		  <div class="container">
+			<!-- Title & Subtitle -->
+			<div class="row">
+			  <div class="col-lg-12">
+				<div class="section-title">
+				  <h2 class="text-center"><span>Full Schedule</span></h2>
+				  <p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+				</div>
+			  </div>
+			</div>
+			<!-- /.Title & Subtitle -->
+
+			<!-- Schedule Content -->
+			<div class="row">
+			  <div class="col-lg-12">
+
+				<!-- Days Schedule  -->
+				<div class="row">
+				  <div class="col-lg-10 col-lg-offset-1">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs nav-justified" role="tablist" id="toolkit">
+					  <li class="active"> <a href="#day1" role="tab" data-toggle="tab"><span class="text-bold text-big ">Day 01</span></a></li>
+					</ul>
+					<!-- /.Nav tabs -->
+
+					<!-- Tabs Panes Days -->
+					<div class="tab-content">
+
+					  <!-- Tab - Day 01 -->
+					  <div class="tab-pane fade active in" id="day1">
+						<!-- Talk 01 -->
+
+		{% for schedule_item_ID in events_record.schedule|split(", ") %}
+			{% for schedule_item in record_sitems %}
+				{% if schedule_item_ID == schedule_item.id %}
+					{% for record_schedule_speaker in schedule_item.select_speaker %}
+						{% for speaker_record in speaker_records %}
+							{% if record_schedule_speaker == speaker_record.id %}
+
+						<div class="row">
+							<div class="col-xs-4 col-sm-2 text-center">
+								<p class="text-big text-bold">{{ schedule_item.talk_time }}</p>
+								<p><img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle" /></p>
+							</div>
+							<div class="col-xs-8 col-sm-10">
+								<p class="text-big text-bold text-uppercase">{{ schedule_item.talk_title }}</p>
+								<p>{{ schedule_item.talk_summary }}</p>
+								<span class="label label-main">{{ schedule_item.talk_location|raw }} - (~{{ schedule_item.talk_duration|raw }})</span>
+							</div>
+						</div>
+
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+					{% endif %}
+			{% endfor %}
+			{% if loop.last == false %}<hr class="border-light"/>{% endif %}
+		{% endfor %}
+
+						<!-- /.Talk 01 -->
+
+					  </div>
+					  <!-- /.Tab - Day 01 -->
+
+					</div>
+					<!-- /.Tabs Panes Days -->
+				  </div>
+				</div>
+				<!-- /.Days Schedule  -->
+			  </div>
+			</div>
+			<!-- /.Schedule Content -->
 		  </div>
-		</div>
-		<!-- /.Days Schedule  -->
-	  </div>
-	</div>
-	<!-- /.Schedule Content -->
-  </div>
-  <!-- /.container -->
-</section>
-<!-- /.Full Schedule -->
+		  <!-- /.container -->
+		</section>
+		<!-- /.Full Schedule -->
 
 		{% partial 'event-theme/footer' %}
-
 	</body>
 </html>
