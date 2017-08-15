@@ -50,10 +50,10 @@ pageNumber = "{{ :page }}"
 		<style>
 		.homepage {
 		   position: relative;
-		   background: url("{{ background_image }}");
+		   background-image: url("{{ background_image }}");
 		}
 		.container-fluid {
-			background-color: rgba(108, 122, 137, 0.26);
+			background-color: rgba(241, 241, 241, 0.06);
 		    position: absolute;
 		    top: 0;
 		    left: 0;
@@ -86,424 +86,425 @@ pageNumber = "{{ :page }}"
 		</header>
 		<!-- /.Header -->
 
-		<!-- Event description -->
-		{% if events_record.description %}
-		<section id="description" >
-			<div class="container">
-				<style>h1.title{margin:0;font-weight:500;line-height:1;color:inherit;font-family:"pantonblack_caps",sans-serif;margin-bottom:50px}h1.title:after{content:"";display:block;height:15px;margin-left:10%;margin-top:34px;margin-right:10%;background:#6c7a89}</style>
-				<div class="col-sm-12">
-					<h1 class="title text-uppercase text-center">{{ events_record.event_title }}</h1>
-				</div>
-				<!-- <div class="row">
-					<div class="col-md-12">
-						<div class="section-title">
-							<h2 class="text-center"><span>{{ events_record.event_title }}</span></h2>
-							<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
-						</div>
-					</div>
-				</div> -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="col-sm-10 col-sm-offset-1" style='font-size: 18px;font-family: "Ubuntu", "pantonblack_caps", sans-serif; line-height: 1.428571429; color: #2d2d2d;'>
-							{{ events_record.description|raw }}
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		{% endif %}
-		<!-- /.Event description -->
-
-
-		<style>
-			.speakers {
-				padding: 50px;
-			    padding-bottom: 160px;
-			}
-
-			.carousel {
-			    position: relative
-			}
-
-			.carousel-inner {
-			    position: relative;
-			    overflow: hidden;
-			    width: 100%
-			}
-
-			.carousel-inner>.active,
-			.carousel-inner>.next,
-			.carousel-inner>.prev {
-			    display: block
-			}
-
-			.carousel-inner>.item {
-			    position: relative
-			}
-
-			.speakers .speaker img {
-			    width: 280px;
-			    height: 280px;
-			    margin: 0 auto;
-			    display: block
-			}
-
-			.speakers .speaker .info {
-			    padding: 38px 0
-			}
-
-			.poppins-bold {
-			    font-family: "poppinsbold", sans-serif
-			}
-
-			#speakers-carousel > div > div.item.speaker.active > div > div.col-lg-8.col-md-7.col-sm-6 > div > h4 {
-				margin: 0;
-			    font-weight: 500;
-			    line-height: 1;
-			    color: inherit;
-			    font-size: 25px
-			}
-
-			.text-red {
-			    color: rgb(92, 90, 134);
-			}
-
-			.description, .bio {
-			    font-size: 18px;
-			    margin: 0 0 10px
-			}
-
-			.speakers .carousel .carousel-indicators {
-			    width: 50%;
-			    bottom: auto;
-			    top: calc(100% + 32px);
-			    margin-bottom: 0;
-			    margin-left: -25%
-			}
-
-			.carousel-indicators {
-			    position: absolute;
-			    left: 50%;
-			    z-index: 15;
-			    padding-left: 0;
-			    list-style: none;
-			    text-align: center
-			}
-
-			.speakers .carousel .carousel-indicators li {
-			    width: 52px;
-			    height: 52px;
-			    border: 0;
-			    margin: 0;
-			    opacity: .5;
-			    transition: .3s opacity
-			}
-
-			.carousel-indicators li {
-			    display: inline-block;
-			    width: 10px;
-			    height: 10px;
-			    margin: 1px;
-			    text-indent: -999px;
-			    border: 1px solid #fff;
-			    border-radius: 10px;
-			    cursor: pointer;
-			    background-color: #000 \9;
-			    background-color: rgba(0, 0, 0, 0)
-			}
-
-			.speakers .carousel .carousel-indicators li img {
-			    max-width: 100%
-			}
-
-			.speaker_image img {
-			    vertical-align: middle;
-			    border: 0
-			}
-
-			.speakers .carousel .carousel-indicators li.active {
-			    opacity: 1;
-			}
-		</style>
-
-		<section class="speakers waypoint-point" id="speakers" style="background: #ffffff;">
-		    <div class="container">
-		        <div class="row">
+		<div class="allsections" style="background: hsla(0, 0%, 97%, 1);">
+			<!-- Event description -->
+			{% if events_record.description %}
+			<section id="description" >
+				<div class="container">
 					<style>h1.title{margin:0;font-weight:500;line-height:1;color:inherit;font-family:"pantonblack_caps",sans-serif;margin-bottom:50px}h1.title:after{content:"";display:block;height:15px;margin-left:10%;margin-top:34px;margin-right:10%;background:#6c7a89}</style>
-		            <div class="col-sm-12">
-		                <h1 class="title text-uppercase text-center">Speakers</h1>
-		            </div>
+					<div class="col-sm-12">
+						<h1 class="title text-uppercase text-center">{{ events_record.event_title }}</h1>
+					</div>
 					<!-- <div class="row">
 						<div class="col-md-12">
 							<div class="section-title">
-								<h2 class="text-center"><span>Speakers</span></h2>
+								<h2 class="text-center"><span>{{ events_record.event_title }}</span></h2>
 								<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
 							</div>
 						</div>
 					</div> -->
-		            <div class="col-sm-10 col-sm-offset-1">
-		                <div class="carousel slide"  id="speakers-carousel">
-		                    <div class="carousel-inner" role="listbox">
-								{% set array = [] %}
-								{% for speaker_record in speaker_records %}
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-sm-10 col-sm-offset-1" style='font-size: 18px;font-family: "Ubuntu", "pantonblack_caps", sans-serif; line-height: 1.428571429; color: #2d2d2d;'>
+								{{ events_record.description|raw }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			{% endif %}
+			<!-- /.Event description -->
 
-									{% for schedule_item_ID in events_record.schedule|split(", ") %}
-										{% for schedule_item in record_sitems %}
-											{% if schedule_item_ID == schedule_item.id %}
 
-												{% for elm in schedule_item.select_speaker %}
-													{% if elm not in array %}
-														{% if elm == speaker_record.id %}
-		                        <div class="item speaker">
-		                            <div class="row">
-										<a href="/events/speakers#{{ speaker_record.id }}">
-			                                <div class="col-lg-4 col-md-5 col-sm-6">
-			                                    <img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="{{ speaker_record.first_name }} {{ speaker_record.last_name }}">
+			<style>
+				.speakers {
+					padding: 50px;
+				    padding-bottom: 160px;
+				}
+
+				.carousel {
+				    position: relative
+				}
+
+				.carousel-inner {
+				    position: relative;
+				    overflow: hidden;
+				    width: 100%
+				}
+
+				.carousel-inner>.active,
+				.carousel-inner>.next,
+				.carousel-inner>.prev {
+				    display: block
+				}
+
+				.carousel-inner>.item {
+				    position: relative
+				}
+
+				.speakers .speaker img {
+				    width: 280px;
+				    height: 280px;
+				    margin: 0 auto;
+				    display: block
+				}
+
+				.speakers .speaker .info {
+				    padding: 38px 0
+				}
+
+				.poppins-bold {
+				    font-family: "poppinsbold", sans-serif
+				}
+
+				#speakers-carousel > div > div.item.speaker.active > div > div.col-lg-8.col-md-7.col-sm-6 > div > h4 {
+					margin: 0;
+				    font-weight: 500;
+				    line-height: 1;
+				    color: inherit;
+				    font-size: 25px
+				}
+
+				.text-red {
+				    color: rgb(92, 90, 134);
+				}
+
+				.description, .bio {
+				    font-size: 18px;
+				    margin: 0 0 10px
+				}
+
+				.speakers .carousel .carousel-indicators {
+				    width: 50%;
+				    bottom: auto;
+				    top: calc(100% + 32px);
+				    margin-bottom: 0;
+				    margin-left: -25%
+				}
+
+				.carousel-indicators {
+				    position: absolute;
+				    left: 50%;
+				    z-index: 15;
+				    padding-left: 0;
+				    list-style: none;
+				    text-align: center
+				}
+
+				.speakers .carousel .carousel-indicators li {
+				    width: 52px;
+				    height: 52px;
+				    border: 0;
+				    margin: 0;
+				    opacity: .5;
+				    transition: .3s opacity
+				}
+
+				.carousel-indicators li {
+				    display: inline-block;
+				    width: 10px;
+				    height: 10px;
+				    margin: 1px;
+				    text-indent: -999px;
+				    border: 1px solid #fff;
+				    border-radius: 10px;
+				    cursor: pointer;
+				    background-color: #000 \9;
+				    background-color: rgba(0, 0, 0, 0)
+				}
+
+				.speakers .carousel .carousel-indicators li img {
+				    max-width: 100%
+				}
+
+				.speaker_image img {
+				    vertical-align: middle;
+				    border: 0
+				}
+
+				.speakers .carousel .carousel-indicators li.active {
+				    opacity: 1;
+				}
+			</style>
+
+			<section class="speakers waypoint-point" id="speakers" style="background: 0;">
+			    <div class="container">
+			        <div class="row">
+						<style>h1.title{margin:0;font-weight:500;line-height:1;color:inherit;font-family:"pantonblack_caps",sans-serif;margin-bottom:50px}h1.title:after{content:"";display:block;height:15px;margin-left:10%;margin-top:34px;margin-right:10%;background:#6c7a89}</style>
+			            <div class="col-sm-12">
+			                <h1 class="title text-uppercase text-center">Speakers</h1>
+			            </div>
+						<!-- <div class="row">
+							<div class="col-md-12">
+								<div class="section-title">
+									<h2 class="text-center"><span>Speakers</span></h2>
+									<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+								</div>
+							</div>
+						</div> -->
+			            <div class="col-sm-10 col-sm-offset-1">
+			                <div class="carousel slide"  id="speakers-carousel">
+			                    <div class="carousel-inner" role="listbox">
+									{% set array = [] %}
+									{% for speaker_record in speaker_records %}
+
+										{% for schedule_item_ID in events_record.schedule|split(", ") %}
+											{% for schedule_item in record_sitems %}
+												{% if schedule_item_ID == schedule_item.id %}
+
+													{% for elm in schedule_item.select_speaker %}
+														{% if elm not in array %}
+															{% if elm == speaker_record.id %}
+			                        <div class="item speaker">
+			                            <div class="row">
+											<a href="/events/speakers#{{ speaker_record.id }}">
+				                                <div class="col-lg-4 col-md-5 col-sm-6">
+				                                    <img src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="{{ speaker_record.first_name }} {{ speaker_record.last_name }}">
+				                                </div>
+											</a>
+			                                <div class="col-lg-8 col-md-7 col-sm-6">
+			                                    <div class="info">
+			                                        <h4 class="poppins-bold name">{{ speaker_record.first_name }} {{ speaker_record.last_name }}</h4>
+			                                        <p class="text-red text-uppercase poppins-regular description">{{ speaker_record.speaker_bio_title }}</p>
+			                                        <p class="bio poppins-regular">{{ speaker_record.speaker_bio }}</p>
+			                                    </div>
 			                                </div>
-										</a>
-		                                <div class="col-lg-8 col-md-7 col-sm-6">
-		                                    <div class="info">
-		                                        <h4 class="poppins-bold name">{{ speaker_record.first_name }} {{ speaker_record.last_name }}</h4>
-		                                        <p class="text-red text-uppercase poppins-regular description">{{ speaker_record.speaker_bio_title }}</p>
-		                                        <p class="bio poppins-regular">{{ speaker_record.speaker_bio }}</p>
-		                                    </div>
-		                                </div>
-		                            </div>
-		                        </div>
-														{% set array = array|merge([elm]) %}
+			                            </div>
+			                        </div>
+															{% set array = array|merge([elm]) %}
+														{% endif %}
 													{% endif %}
-												{% endif %}
-											{% endfor %}
+												{% endfor %}
 
-										{% endif %}
+											{% endif %}
+										{% endfor %}
 									{% endfor %}
+
 								{% endfor %}
+			                    </div>
+			                    <ol class="carousel-indicators">
+									{% set array = [] %}
+									{% for speaker_record in speaker_records %}
 
-							{% endfor %}
-		                    </div>
-		                    <ol class="carousel-indicators">
-								{% set array = [] %}
-								{% for speaker_record in speaker_records %}
+										{% for schedule_item_ID in events_record.schedule|split(", ") %}
+											{% for schedule_item in record_sitems %}
+												{% if schedule_item_ID == schedule_item.id %}
 
-									{% for schedule_item_ID in events_record.schedule|split(", ") %}
-										{% for schedule_item in record_sitems %}
-											{% if schedule_item_ID == schedule_item.id %}
-
-												{% for elm in schedule_item.select_speaker %}
-													{% if elm not in array %}
-														{% if elm == speaker_record.id %}
-		                        <li id="speaker_image" onclick='setActive(this)' class="">
-		                            <img class="img-responsive" src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="{{ speaker_record.first_name }} {{ speaker_record.last_name }}">
-		                        </li>
-														{% set array = array|merge([elm]) %}
+													{% for elm in schedule_item.select_speaker %}
+														{% if elm not in array %}
+															{% if elm == speaker_record.id %}
+			                        <li id="speaker_image" onclick='setActive(this)' class="">
+			                            <img class="img-responsive" src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="{{ speaker_record.first_name }} {{ speaker_record.last_name }}">
+			                        </li>
+															{% set array = array|merge([elm]) %}
+														{% endif %}
 													{% endif %}
-												{% endif %}
-											{% endfor %}
+												{% endfor %}
 
-										{% endif %}
+											{% endif %}
+										{% endfor %}
 									{% endfor %}
+
 								{% endfor %}
+			                    </ol>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</section>
 
-							{% endfor %}
-		                    </ol>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</section>
+			<script>
+				function setActive(e) {
+					$("li#speaker_image").removeClass("active");
+					$(e).addClass("active");
+					$("div.item.speaker").removeClass("active");
+					$("div.item.speaker").eq($("li#speaker_image").index($(e))).addClass("active");
+				}
+				$(function() {
+					$(".carousel").carousel("pause");
+					$("li#speaker_image").eq(0).addClass("active");
+					$("div.item.speaker").eq(0).addClass("active");
+				});
+			</script>
 
-		<script>
-			function setActive(e) {
-				$("li#speaker_image").removeClass("active");
-				$(e).addClass("active");
-				$("div.item.speaker").removeClass("active");
-				$("div.item.speaker").eq($("li#speaker_image").index($(e))).addClass("active");
-			}
-			$(function() {
-				$(".carousel").carousel("pause");
-				$("li#speaker_image").eq(0).addClass("active");
-				$("div.item.speaker").eq(0).addClass("active");
-			});
-		</script>
+			<section id="sponsors" style="background: 0;">
+				<div class="container text-center">
+					<style>h1.title{margin:0;font-weight:500;line-height:1;color:inherit;font-family:"pantonblack_caps",sans-serif;margin-bottom:50px}h1.title:after{content:"";display:block;height:15px;margin-left:10%;margin-top:34px;margin-right:10%;background:#6c7a89}</style>
+					<div class="col-sm-12">
+						<h1 class="title text-uppercase text-center">Sponsors</h1>
+					</div>
+					<!-- <div class="row">
+						<div class="col-md-12">
+							<div class="section-title">
+								<h2 class="text-center"><span>Sponsors</span></h2>
+								<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
+							</div>
+						</div>
+					</div> -->
 
-		<section id="sponsors" style="background: white">
-			<div class="container text-center">
-				<style>h1.title{margin:0;font-weight:500;line-height:1;color:inherit;font-family:"pantonblack_caps",sans-serif;margin-bottom:50px}h1.title:after{content:"";display:block;height:15px;margin-left:10%;margin-top:34px;margin-right:10%;background:#6c7a89}</style>
+
+					<style media="screen">
+					.sponsors .col-sm-3 {
+					    display: inline-block;
+					    float: none;
+					}
+
+					.logo_div {
+					    width: 24%;
+					}
+
+					.logo_div a {
+					    color: #2d2d2d;
+					    text-decoration: none;
+					    background-color: transparent;
+					}
+
+					.logo-block {
+					    border: 1px solid #b7c0c8;
+					    padding: 12px 24px;
+					    min-height: 110px;
+					    margin-bottom: 20px;
+					}
+
+					.logo-block-image-container {
+					    height: 150px;
+					    line-height: 150px;
+					}
+
+					.logo-block img {
+					    max-width: 100%;
+					    max-height: 100%;
+					}
+
+					.logo-block-image-container img {
+					    vertical-align: middle;
+					    border: 0;
+					}
+
+					.row-center {
+					    text-align: center;
+					}
+
+					.col-centered {
+					    display: inline-block;
+					    float: none;
+					    text-align: left;
+					    margin-right: -4px;
+					}
+					</style>
+
+					<div class="row-centered">
+						<div class="col-sm-10 col-sm-offset-1">
+						    <!-- <br> -->
+						    <div class="row-centered">
+								{% for record_select_sponsors in record.select_sponsors %}
+								{% for record_partner in partner_records %}
+								{% if record_partner.id == record_select_sponsors %}
+						        <div class="col-sm-3 col-centered logo_div">
+						            <a href="{{ record_partner.web_address }}" target="_blank">
+						                <div class="logo-block text-center">
+											{% if record_partner.media_partner_switch == "1" %}<p class="text-uppercase">media partner</p>{% endif %}
+											{% if record_partner.media_partner_switch == "0" %}<p class="text-uppercase">sponsor</p>{% endif %}
+						                    <div class="logo-block-image-container">
+						                        <img src="{{ '/storage/app/media' ~ record_partner.logo }}" alt="Logo ma opolska v rgb2">
+						                    </div>
+						                </div>
+						            </a>
+						        </div>
+								{% endif %}
+								{% endfor %}
+								{% endfor %}
+						    </div>
+						    <!-- <br> -->
+						</div>
+					</div>
+			</section>
+
+
+
+
+			<!-- Full Schedule -->
+			<section id="full-schedule">
+			  <div class="container">
+
+				<style>h1.title-schedule{margin:0;font-weight:500;line-height:1;color:inherit;font-family:"pantonblack_caps",sans-serif;margin-bottom:20px}</style>
 				<div class="col-sm-12">
-					<h1 class="title text-uppercase text-center">Sponsors</h1>
+					<h1 class="title-schedule text-uppercase text-center">Full Schedule</h1>
 				</div>
 				<!-- <div class="row">
-					<div class="col-md-12">
-						<div class="section-title">
-							<h2 class="text-center"><span>Sponsors</span></h2>
-							<p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
-						</div>
+				  <div class="col-lg-12">
+					<div class="section-title">
+					  <h2 class="text-center"><span>Full Schedule</span></h2>
+					  <p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
 					</div>
+				  </div>
 				</div> -->
 
-
-				<style media="screen">
-				.sponsors .col-sm-3 {
-				    display: inline-block;
-				    float: none;
-				}
-
-				.logo_div {
-				    width: 24%;
-				}
-
-				.logo_div a {
-				    color: #2d2d2d;
-				    text-decoration: none;
-				    background-color: transparent;
-				}
-
-				.logo-block {
-				    border: 1px solid #b7c0c8;
-				    padding: 12px 24px;
-				    min-height: 110px;
-				    margin-bottom: 20px;
-				}
-
-				.logo-block-image-container {
-				    height: 150px;
-				    line-height: 150px;
-				}
-
-				.logo-block img {
-				    max-width: 100%;
-				    max-height: 100%;
-				}
-
-				.logo-block-image-container img {
-				    vertical-align: middle;
-				    border: 0;
-				}
-
-				.row-center {
-				    text-align: center;
-				}
-
-				.col-centered {
-				    display: inline-block;
-				    float: none;
-				    text-align: left;
-				    margin-right: -4px;
-				}
-				</style>
-
-				<div class="row-centered">
-					<div class="col-sm-10 col-sm-offset-1">
-					    <!-- <br> -->
-					    <div class="row-centered">
-							{% for record_select_sponsors in record.select_sponsors %}
-							{% for record_partner in partner_records %}
-							{% if record_partner.id == record_select_sponsors %}
-					        <div class="col-sm-3 col-centered logo_div">
-					            <a href="{{ record_partner.web_address }}" target="_blank">
-					                <div class="logo-block text-center">
-										{% if record_partner.media_partner_switch == "1" %}<p class="text-uppercase">media partner</p>{% endif %}
-										{% if record_partner.media_partner_switch == "0" %}<p class="text-uppercase">sponsor</p>{% endif %}
-					                    <div class="logo-block-image-container">
-					                        <img src="{{ '/storage/app/media' ~ record_partner.logo }}" alt="Logo ma opolska v rgb2">
-					                    </div>
-					                </div>
-					            </a>
-					        </div>
-							{% endif %}
-							{% endfor %}
-							{% endfor %}
-					    </div>
-					    <!-- <br> -->
-					</div>
-				</div>
-		</section>
-
-
-
-
-		<!-- Full Schedule -->
-		<section id="full-schedule">
-		  <div class="container">
-
-			<style>h1.title-schedule{margin:0;font-weight:500;line-height:1;color:inherit;font-family:"pantonblack_caps",sans-serif;margin-bottom:20px}</style>
-			<div class="col-sm-12">
-				<h1 class="title-schedule text-uppercase text-center">Full Schedule</h1>
-			</div>
-			<!-- <div class="row">
-			  <div class="col-lg-12">
-				<div class="section-title">
-				  <h2 class="text-center"><span>Full Schedule</span></h2>
-				  <p class="subtitle text-center"><i class="fa fa-angle-down fa-lg"></i></p>
-				</div>
-			  </div>
-			</div> -->
-
-			<!-- Schedule Content -->
-			<div class="row">
-			  <div class="col-lg-12">
-
-				<!-- Days Schedule  -->
+				<!-- Schedule Content -->
 				<div class="row">
-				  <div class="col-lg-10 col-lg-offset-1">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs nav-justified" role="tablist" id="toolkit">
-					  <li class="active"> <a href="#day1" role="tab" data-toggle="tab"><span class="text-bold text-big ">Day 01</span></a></li>
-					</ul>
-					<!-- /.Nav tabs -->
+				  <div class="col-lg-12">
 
-					<!-- Tabs Panes Days -->
-					<div class="tab-content">
+					<!-- Days Schedule  -->
+					<div class="row">
+					  <div class="col-lg-10 col-lg-offset-1">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs nav-justified" role="tablist" id="toolkit">
+						  <li class="active"> <a href="#day1" role="tab" data-toggle="tab"><span class="text-bold text-big ">Day 01</span></a></li>
+						</ul>
+						<!-- /.Nav tabs -->
 
-					  <!-- Tab - Day 01 -->
-					  <div class="tab-pane fade active in" id="day1">
-						<!-- Talk 01 -->
+						<!-- Tabs Panes Days -->
+						<div class="tab-content">
 
-		{% for schedule_item_ID in events_record.schedule|split(", ") %}
-			{% for schedule_item in record_sitems %}
-				{% if schedule_item_ID == schedule_item.id %}
-					{% for record_schedule_speaker in schedule_item.select_speaker %}
-						{% for speaker_record in speaker_records %}
-							{% if record_schedule_speaker == speaker_record.id %}
+						  <!-- Tab - Day 01 -->
+						  <div class="tab-pane fade active in" id="day1">
+							<!-- Talk 01 -->
 
-						<div class="row">
-							<div class="col-xs-4 col-sm-2 text-center">
-								<p style="margin: 0 0 2px;" class="text-big text-bold">{{ schedule_item.talk_time }}</p>
-								<p style="margin: 0 0;"><img style="width: 75%; height: auto;" src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle" /></p>
+			{% for schedule_item_ID in events_record.schedule|split(", ") %}
+				{% for schedule_item in record_sitems %}
+					{% if schedule_item_ID == schedule_item.id %}
+						{% for record_schedule_speaker in schedule_item.select_speaker %}
+							{% for speaker_record in speaker_records %}
+								{% if record_schedule_speaker == speaker_record.id %}
+
+							<div class="row">
+								<div class="col-xs-4 col-sm-2 text-center">
+									<p style="margin: 0 0 2px;" class="text-big text-bold">{{ schedule_item.talk_time }}</p>
+									<p style="margin: 0 0;"><img style="width: 75%; height: auto;" src="{{ '/storage/app/media' ~ speaker_record.speaker_photo }}" alt="Speaker" class="img-responsive center-block img-circle" /></p>
+								</div>
+								<div class="col-xs-8 col-sm-10">
+									<p class="text-big text-bold text-uppercase" style="margin: 0 0 4px;">{{ schedule_item.talk_title }}</p>
+									<p id="talk_summary" style='font-size: 16px;'>{{ schedule_item.talk_summary }}</p>
+									<span class="label label-main">{{ schedule_item.talk_location|raw }} - (~{{ schedule_item.talk_duration|raw }})</span>
+								</div>
 							</div>
-							<div class="col-xs-8 col-sm-10">
-								<p class="text-big text-bold text-uppercase" style="margin: 0 0 4px;">{{ schedule_item.talk_title }}</p>
-								<p id="talk_summary" style='font-size: 16px;'>{{ schedule_item.talk_summary }}</p>
-								<span class="label label-main">{{ schedule_item.talk_location|raw }} - (~{{ schedule_item.talk_duration|raw }})</span>
-							</div>
-						</div>
 
-								{% endif %}
+									{% endif %}
+								{% endfor %}
 							{% endfor %}
-						{% endfor %}
-					{% endif %}
+						{% endif %}
+				{% endfor %}
+				{% if loop.last == false %}<hr class="border-light"/>{% endif %}
 			{% endfor %}
-			{% if loop.last == false %}<hr class="border-light"/>{% endif %}
-		{% endfor %}
 
-						<!-- /.Talk 01 -->
+							<!-- /.Talk 01 -->
 
+						  </div>
+						  <!-- /.Tab - Day 01 -->
+
+						</div>
+						<!-- /.Tabs Panes Days -->
 					  </div>
-					  <!-- /.Tab - Day 01 -->
-
 					</div>
-					<!-- /.Tabs Panes Days -->
+					<!-- /.Days Schedule  -->
 				  </div>
 				</div>
-				<!-- /.Days Schedule  -->
+				<!-- /.Schedule Content -->
 			  </div>
-			</div>
-			<!-- /.Schedule Content -->
-		  </div>
-		  <!-- /.container -->
-		</section>
-		<!-- /.Full Schedule -->
-
+			  <!-- /.container -->
+			</section>
+			<!-- /.Full Schedule -->
+		</div>
 		{% partial 'event-theme/footer' %}
 	</body>
 </html>
