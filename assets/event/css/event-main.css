@@ -212,7 +212,6 @@ section#event-features h2 {font-size:21px; margin:25px 0 10px}
 /*********
 6.Section Speakers
 *********/
-section#speakers {background:#EFEFEF}
 section#speakers .speaker-item {margin:15px 0;}
 section#speakers .speaker-item figure {margin:0 0 15px;}
 section#speakers .speaker-item img {-webkit-filter:grayscale(1) opacity(0.95);-moz-filter:grayscale(1) opacity(0.95);-o-filter:grayscale(1) opacity(0.95);-ms-filter:grayscale(1) opacity(0.95);filter:grayscale(1) opacity(0.95)}

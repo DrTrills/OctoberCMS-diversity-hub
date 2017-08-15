@@ -80,41 +80,6 @@ pageNumber = "{{ :page }}"
 		</header>
 		<!-- /.Header -->
 
-
-		<!-- Event Features -->
-		<!-- <section id="event-features">
-			<div class="container">
-				<div class="row">
-					{% if events_record.event_idea %}
-					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/ideas.svg'|theme }}" width="49" height="80" class="img-responsive" alt="Ideas" />
-						<h2 class="accent">Ideas</h2>
-						<p> {{ events_record.event_idea }} </p>
-					</div>
-					{% endif %}
-					{% if events_record.event_discussion %}
-					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/discussions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Discussions" />
-						<h2 class="accent">Discussions</h2>
-						<p> {{ events_record.event_discussion }} </p>
-					</div>
-					{% endif %}
-					{% if events_record.event_exhibition %}
-					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/exhibitions.svg'|theme }}" width="76" height="80" class="img-responsive" alt="Exhibitions" />
-						<h2 class="accent">Exhibitions</h2>
-						<p> {{ events_record.event_exhibition }} </p>
-					</div>
-					{% endif %}
-					{% if events_record.event_workshop %}
-					<div class="col-md-3 col-sm-6  col-xs-6"> <img src="{{ 'assets/event/media/icons/svgs/workshops.svg'|theme }}" width="70" height="70" class="img-responsive" alt="Workshops" />
-						<h2 class="accent">Workshops</h2>
-						<p> {{ events_record.event_workshop }} </p>
-					</div>
-					{% endif %}
-				</div>
-			</div>
-		</section> -->
-		<!-- /.Event Features -->
-
-
 		<!-- Event description -->
 		{% if events_record.description %}
 		<section id="description" >
@@ -149,156 +114,136 @@ pageNumber = "{{ :page }}"
 
 
 		<style>
+			.speakers {
+				padding: 50px;
+			    padding-bottom: 160px;
+			}
 
-		.speakers {
-		padding-bottom:160px
-		}
+			.carousel {
+			    position: relative
+			}
 
-		section {
-		padding:50px
-		}
+			.carousel-inner {
+			    position: relative;
+			    overflow: hidden;
+			    width: 100%
+			}
 
-		article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
-		display:block
-		}
+			.carousel-inner>.active,
+			.carousel-inner>.next,
+			.carousel-inner>.prev {
+			    display: block
+			}
 
-		.carousel {
-		position:relative
-		}
+			.carousel-inner>.item {
+			    position: relative
+			}
 
-		.carousel-inner {
-		position:relative;
-		overflow:hidden;
-		width:100%
-		}
+			.speakers .speaker img {
+			    width: 280px;
+			    height: 280px;
+			    margin: 0 auto;
+			    display: block
+			}
 
-		.carousel-inner>.active, .carousel-inner>.next, .carousel-inner>.prev {
-		display:block
-		}
+			.speakers .speaker .info {
+			    padding: 38px 0
+			}
 
-		.carousel-inner>.item {
-		position:relative
-		}
+			.poppins-bold {
+			    font-family: "poppinsbold", sans-serif
+			}
 
-		.speakers .speaker img {
-		width:280px;
-		height:280px;
-		margin:0 auto;
-		display:block
-		}
+			#speakers-carousel > div > div.item.speaker.active > div > div.col-lg-8.col-md-7.col-sm-6 > div > h4 {
+				margin: 0;
+			    font-weight: 500;
+			    line-height: 1;
+			    color: inherit;
+			    font-size: 25px
+			}
 
-		.speakers .speaker .info {
-		padding:38px 0
-		}
+			#speakers > div > div > div.col-sm-12 > h1 {
+				margin: 0;
+			    font-weight: 500;
+			    line-height: 1;
+			    color: inherit;
+				font-family: "pantonblack_caps", sans-serif;
+				margin-bottom: 50px
+			}
 
-		.poppins-bold {
-		font-family:"poppinsbold",sans-serif
-		}
+			h1.highlighted:after {
+				content: "";
+				display: block;
+				height: 15px;
+				margin-left: 10%;
+				margin-top: 34px;
+				margin-right: 10%;
+				background: #6c7a89
+			}
 
-		h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
-		margin:0
-		}
+			.text-red {
+			    color: rgb(92, 90, 134);
+			}
 
-		h4,.h4 {
-		font-size:25px
-		}
+			.description, .bio {
+			    font-size: 18px;
+			    margin: 0 0 10px
+			}
 
-		h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6 {
-		font-weight:500;
-		line-height:1;
-		color:inherit
-		}
+			.speakers .carousel .carousel-indicators {
+			    width: 50%;
+			    bottom: auto;
+			    top: calc(100% + 32px);
+			    margin-bottom: 0;
+			    margin-left: -25%
+			}
 
-		.text-red {
-			color: rgb(92, 90, 134);
-		}
+			.carousel-indicators {
+			    position: absolute;
+			    left: 50%;
+			    z-index: 15;
+			    padding-left: 0;
+			    list-style: none;
+			    text-align: center
+			}
 
-		.text-uppercase {
-		text-transform:uppercase
-		}
+			.speakers .carousel .carousel-indicators li {
+			    width: 52px;
+			    height: 52px;
+			    border: 0;
+			    margin: 0;
+			    opacity: .5;
+			    transition: .3s opacity
+			}
 
-		p {
-		font-size:18px;
-		margin:0 0 10px
-		}
+			.carousel-indicators li {
+			    display: inline-block;
+			    width: 10px;
+			    height: 10px;
+			    margin: 1px;
+			    text-indent: -999px;
+			    border: 1px solid #fff;
+			    border-radius: 10px;
+			    cursor: pointer;
+			    background-color: #000 \9;
+			    background-color: rgba(0, 0, 0, 0)
+			}
 
-		.speakers .carousel .carousel-indicators {
-		width:50%;
-		bottom:auto;
-		top:calc(100% + 32px);
-		margin-bottom:0;
-		margin-left:-25%
-		}
+			.speakers .carousel .carousel-indicators li img {
+			    max-width: 100%
+			}
 
-		.carousel-indicators {
-		position:absolute;
-		left:50%;
-		z-index:15;
-		padding-left:0;
-		list-style:none;
-		text-align:center
-		}
+			.speaker_image img {
+			    vertical-align: middle;
+			    border: 0
+			}
 
-		.speakers .carousel .carousel-indicators li {
-		width:52px;
-		height:52px;
-		border:0;
-		margin:0;
-		opacity:.5;
-		transition:.3s opacity
-		}
-
-		.carousel-indicators li {
-		display:inline-block;
-		width:10px;
-		height:10px;
-		margin:1px;
-		text-indent:-999px;
-		border:1px solid #fff;
-		border-radius:10px;
-		cursor:pointer;
-		background-color:#000 \9;
-		background-color:rgba(0,0,0,0)
-		}
-
-		.speakers .carousel .carousel-indicators li img {
-		max-width:100%
-		}
-
-		img {
-		vertical-align:middle;
-		border:0
-		}
-
-		h1.highlighted:after {
-		content:"";
-		display:block;
-		height:15px;
-		margin-left:10%;
-		margin-top:34px;
-		margin-right:10%;
-		background:#6c7a89
-		}
-
-		.text-uppercase {
-		text-transform:uppercase
-		}
-
-		.text-center {
-		text-align:center
-		}
-
-		h1 {
-		font-family:"pantonblack_caps",sans-serif;
-		margin-bottom:50px
-		}
-
-		.speakers .carousel .carousel-indicators li.active {
-		    opacity: 1;
-		}
+			.speakers .carousel .carousel-indicators li.active {
+			    opacity: 1;
+			}
 		</style>
 
-		<section class="speakers waypoint-point" id="speakers">
+		<section class="speakers waypoint-point" id="speakers" style="background: #ffffff;">
 		    <div class="container">
 		        <div class="row">
 		            <div class="col-sm-12">
@@ -388,7 +333,7 @@ pageNumber = "{{ :page }}"
 		</script>
 
 		<section id="sponsors" style="background: white">
-			<div class="container">
+			<div class="container text-center">
 				<!-- Title & Subtitle -->
 				<div class="row">
 					<div class="col-md-12">
@@ -400,48 +345,82 @@ pageNumber = "{{ :page }}"
 				</div>
 				<!-- /.Title & Subtitle -->
 
-				<!-- Sponsors List -->
-				<!-- <div class="row">
-				{% for record_select_sponsors in record.select_sponsors %}
-				{% for record_partner in partner_records %}
-				{% if record_partner.id == record_select_sponsors %}
-					<div class="col-md-2 col-sm-4 col-xs-6 mrgn-20-top-btm">
-						<div style="text-align:center; padding-bottom:100%; overflow:hidden; position:relative">
-							<a href="{{ record_partner.web_address }}">
-								<img style="position: absolute; max-width: 100%; /*max-height: 100%;*/ top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);"  class="img img-responsive full-width" src="{{ '/storage/app/media' ~ record_partner.logo }}" width="230" height="150" alt="">
-							</a>
-							{% if record_partner.media_partner_switch == "1" %}<div style="opacity: 0.7;">Media partner</div>{% endif %}
-							{% if record_partner.media_partner_switch == "0" %}<div style="opacity: 0.7;">Sponsor</div>{% endif %}
-						</div>
-					</div>
-				{% endif %}
-				{% endfor %}
-				{% endfor %}
-				</div> -->
 
-				<div class="text-center">
-		{% for record_select_sponsors in record.select_sponsors %}
-		{% for record_partner in partner_records %}
-		{% if record_partner.id == record_select_sponsors %}
-					<div class="col-sm-3" style="width: 20%; display: inline-block; position: relative;">
-						<a href="{{ record_partner.web_address }}" target="_blank">
-							<div class="logo-block text-center" style="width: 205px; width: 204px; border: 1px solid #b7c0c8; padding: 12px 24px; min-height: 110px; margin-bottom: 20px;">
-								{% if record_partner.media_partner_switch == "1" %}<p class="text-uppercase">media partner</p>{% endif %}
-								{% if record_partner.media_partner_switch == "0" %}<p class="text-uppercase">sponsor</p>{% endif %}
-								<div class="logo-block-image-container" style="height: 150px; line-height: 150px;">
-									<!-- <img class="img img-responsive full-width" src="{{ '/storage/app/media' ~ record_partner.logo }}" width="230" height="150"> -->
-									<img style="max-width: 100%; max-height: 100%; vertical-align: middle; border: 0; box-sizing: border-box; " src="{{ '/storage/app/media' ~ record_partner.logo }}">
-								</div>
-							</div>
-						</a>
+				<style media="screen">
+				.sponsors .col-sm-3 {
+				    display: inline-block;
+				    float: none;
+				}
+
+				.logo_div {
+				    width: 24%;
+				}
+
+				.logo_div a {
+				    color: #2d2d2d;
+				    text-decoration: none;
+				    background-color: transparent;
+				}
+
+				.logo-block {
+				    border: 1px solid #b7c0c8;
+				    padding: 12px 24px;
+				    min-height: 110px;
+				    margin-bottom: 20px;
+				}
+
+				.logo-block-image-container {
+				    height: 150px;
+				    line-height: 150px;
+				}
+
+				.logo-block img {
+				    max-width: 100%;
+				    max-height: 100%;
+				}
+
+				.logo-block-image-container img {
+				    vertical-align: middle;
+				    border: 0;
+				}
+
+				.row-center {
+				    text-align: center;
+				}
+
+				.col-centered {
+				    display: inline-block;
+				    float: none;
+				    text-align: left;
+				    margin-right: -4px;
+				}
+				</style>
+
+				<div class="row-centered">
+					<div class="col-sm-10 col-sm-offset-1">
+					    <!-- <br> -->
+					    <div class="row-centered">
+							{% for record_select_sponsors in record.select_sponsors %}
+							{% for record_partner in partner_records %}
+							{% if record_partner.id == record_select_sponsors %}
+					        <div class="col-sm-3 col-centered logo_div">
+					            <a href="{{ record_partner.web_address }}" target="_blank">
+					                <div class="logo-block text-center">
+										{% if record_partner.media_partner_switch == "1" %}<p class="text-uppercase">media partner</p>{% endif %}
+										{% if record_partner.media_partner_switch == "0" %}<p class="text-uppercase">sponsor</p>{% endif %}
+					                    <div class="logo-block-image-container">
+					                        <img src="{{ '/storage/app/media' ~ record_partner.logo }}" alt="Logo ma opolska v rgb2">
+					                    </div>
+					                </div>
+					            </a>
+					        </div>
+							{% endif %}
+							{% endfor %}
+							{% endfor %}
+					    </div>
+					    <!-- <br> -->
 					</div>
-		{% endif %}
-		{% endfor %}
-		{% endfor %}
 				</div>
-				<!-- /.Sponsors List -->
-			</div>
-			<!-- /.container -->
 		</section>
 
 
