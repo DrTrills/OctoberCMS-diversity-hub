@@ -43,6 +43,7 @@ pageNumber = "{{ :page }}"
 		{% partial 'event-theme/header' %}
 		{% placeholder head %}
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	</head>
 	<body style="padding-top: 0;">
 		<!-- Header -->
@@ -53,7 +54,7 @@ pageNumber = "{{ :page }}"
 		   background-image: url("{{ background_image }}");
 		}
 		.container-fluid {
-			background-color: rgba(241, 241, 241, 0.06);
+			background-color: hsla(0, 0%, 0%, 0.3);
 		    position: absolute;
 		    top: 0;
 		    left: 0;
@@ -63,28 +64,28 @@ pageNumber = "{{ :page }}"
 		</style>
 		<header id="fullwidth" class="homepage">
 			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-					<div class="header-text white text-center text-uppercase">
-						<div class="row">
-						<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-							<h1 style='background: 0; font-size: 100px;'>{{ events_record.event_title }}</h1>
+				<div>
+					<div class="row">
+						<div class="col-md-12">
+						<div class="header-text white text-center text-uppercase">
+							<div class="row">
+							<div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+								<h1 style='background: 0; font-size: 100px;'>{{ events_record.event_title }}</h1>
+							</div>
+							</div>
+							<div class="row">
+							<div class="col-sm-10 col-sm-offset-1">
+								<h2 class="white">{{ events_record.event_subtitle }}</h2>
+								<h3 class="mrgn-50-top white sm-title"><span style="border: 0;" class="date">{{ events_record.event_date }}</span></h3>
+							</div>
+							</div>
 						</div>
-						</div>
-						<div class="row">
-						<div class="col-sm-10 col-sm-offset-1">
-							<h2 class="white">{{ events_record.event_subtitle }}</h2>
-							<h3 class="mrgn-50-top white sm-title"><span style="border: 0;" class="date">{{ events_record.event_date }}</span></h3>
-						</div>
-						</div>
-					</div>
 
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- /.container -->
 		</header>
-		<!-- /.Header -->
 
 		<div class="allsections" style="background: hsla(0, 0%, 97%, 1);">
 			<!-- Event description -->
